@@ -56,12 +56,12 @@ function App() {
 }
 
 const PrivateRoute = ({ component: Component, path: string, ...rest }) => {
-  const { authToken } = React.useContext(AuthContext);
+  const { isLoggedIn } = React.useContext(AuthContext);
   return (
     <Route
       {...rest}
       render={props =>
-        authToken ? <Component {...props} /> : <Redirect to="/" />
+        isLoggedIn ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );
