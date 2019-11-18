@@ -19,6 +19,7 @@ from api import api
 api.init_app(app)
 
 from database import models
+
 @app.shell_context_processor
 def make_shell_context():
     return {
