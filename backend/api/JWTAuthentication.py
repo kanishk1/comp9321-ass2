@@ -1,5 +1,8 @@
 import datetime
-import jwt
+import jwt 
+from flask import request
+from flask_restplus import abort
+from functools import wraps
 from database.models import User
 
 class JWT:
@@ -19,3 +22,19 @@ class JWT:
         data = jwt.decode(token, self._secret_key, algorithm=['HS256'])
         return data['username']
         
+from run import SECRET_KEY, TOKEN_DURATION
+auth = JWT(SECRET_KEY, TOKEN_DURATION)
+
+def auth_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        token = request.headers.get('Auth-Token')
+        if (token is None):
+            abort(401, 'No Authentication Token')
+
+        try:
+            user = auth.validate_token(token)
+        except Exception as e:
+            abort(401, e)
+        return func(*args, **kwargs)
+    return wrapper

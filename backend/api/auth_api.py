@@ -1,16 +1,10 @@
 from flask_restplus import Resource, Namespace, fields, reqparse
 from flask import request
-
 from passlib.hash import pbkdf2_sha256
-
 from database.models import User
-
-from .JWTAuthentication import JWT
-from run import SECRET_KEY, TOKEN_DURATION
+from .JWTAuthentication import auth
 
 api = Namespace('auth', description='Authorization')
-
-jwt = JWT(SECRET_KEY, TOKEN_DURATION)
 
 login_model = api.model('Login', {
     'username': fields.String,
@@ -40,7 +34,7 @@ class Login_Api(Resource):
         password = args.get('password')
         isAuthenticated = authenticate(username, password)
         if (isAuthenticated):
-            return {"token": jwt.generate_token(username)}
+            return {"token": auth.generate_token(username)}
         return {"message": "Incorrect credentials"}, 401
 
 def authenticate(username, password):

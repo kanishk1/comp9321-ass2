@@ -11,7 +11,6 @@ TOKEN_DURATION = 60 * 2
 app = Flask(__name__)
 app.config.from_object(SQLAchemy_Config)
 
-
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
