@@ -16,5 +16,8 @@ flask's shell is setup with models context
 type: `models`
 type: `models.User.query.all()`
 Search Up SQLAlchemy for more commands with models
+<br/>
+Instal newman with npm and you can run the tests
+`$ newman run ./comp9321Test.json`
 
 
