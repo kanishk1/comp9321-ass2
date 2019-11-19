@@ -5,5 +5,4 @@ api = Namespace('auth', description='Authorisation')
 @api.route('/login/')
 class Login_Api(Resource):
     def post(self):
-        return {'No':'Access for You'}
-
+        return {'No': 'Access for You'}
