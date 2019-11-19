@@ -10,6 +10,7 @@ login_model = api.model('Login', {
     'username': fields.String,
     'password': fields.String
 })
+
 credentials_parse = reqparse.RequestParser()
 credentials_parse.add_argument(
     'username', 
@@ -17,12 +18,14 @@ credentials_parse.add_argument(
     type=str, 
     help="username required"
 )
+
 credentials_parse.add_argument(
     'password', 
     required=True,
     type=str,
     help="password required"
 )
+
 @api.route('/login/')
 class Login_Api(Resource):
     @api.response(200,'success')
@@ -42,4 +45,3 @@ def authenticate(username, password):
     if user and pbkdf2_sha256.verify(password, user.hashed_password):
         return True
     return False
-
