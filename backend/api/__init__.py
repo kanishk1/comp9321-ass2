@@ -8,6 +8,14 @@ from .info_api import api as info_api
 api = Api(
     title='Movie stuff',
     description='We do Movie stuff',
+    authorizations={
+        'API-KEY': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'AUTH-TOKEN'
+        }
+    },
+    security='API-KEY'
 )
 
 # add namepsace for swagger description

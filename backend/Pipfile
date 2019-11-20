@@ -8,6 +8,11 @@ verify_ssl = true
 [packages]
 flask-restplus = "*"
 pandas = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+click = "*"
+passlib = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.7"
