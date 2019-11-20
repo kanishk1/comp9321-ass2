@@ -7,6 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.utils import shuffle
+from sklearn.metrics import classification_report
 
 
 def load_final(final_path,split_percentage):
@@ -14,6 +15,8 @@ def load_final(final_path,split_percentage):
 
     df = shuffle(df)
     final_x = df.drop('revenue',axis=1).values
+    final_x = df.drop('cast',axis=1).values
+    final_x = df.drop('director',axis=1).values
     final_y = df['revenue'].values
 
     split_point = int(len(final_x) * split_percentage)
@@ -28,7 +31,7 @@ def load_final(final_path,split_percentage):
 if __name__ == '__main__':
 
     csv_file = 'final.csv'
-    final_X, final_y, _, _ = load_final(csv_file,split_percentage=1)
+    final_X, final_y, _, _ = load_final(csv_file,split_percentage=0.7)
 
     classifiers = [KNeighborsClassifier(),
                    DecisionTreeClassifier(),
@@ -39,9 +42,9 @@ if __name__ == '__main__':
 
     classifier_accuracy_list = []
     for i, classifier in enumerate(classifiers):
-        accuracies = cross_val_score(classifier, final_X, final_y, cv=5)
+        accuracies = cross_val_score(classifier, final_X, final_y, cv=5)        #check this line for errors
         classifier_accuracy_list.append((accuracies.mean(), type(classifier).__name__))
-
-    classifier_accuracy_list = sorted(classifier_accuracy_list, reverse=True)
-    for item in classifier_accuracy_list:
-        print(item[1], ':', item[0])
+    #
+    # classifier_accuracy_list = sorted(classifier_accuracy_list, reverse=True)
+    # for item in classifier_accuracy_list:
+        # print(item[1], ':', item[0])
