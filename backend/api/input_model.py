@@ -2,9 +2,11 @@ from flask_restplus import fields, reqparse
 
 movie_input_model = {
     'title': fields.String,
-    'genre': fields.String,
+    'genre': fields.List(fields.String),
     'actors': fields.List(fields.String),
-    'country': fields.String,
+    'director': fields.String,
+    'release_data': fields.String,
+    'budget': fields.Integer
 }
 
 input_parse = reqparse.RequestParser()
@@ -12,7 +14,7 @@ input_parse.add_argument(
     'title', 
     required=True ,
     type=str, 
-    help="username required",
+    help="title required",
     location='args'
 )
 input_parse.add_argument(
@@ -32,15 +34,30 @@ input_parse.add_argument(
     location='args'
 )
 input_parse.add_argument(
-    'country', 
+    'director', 
     required=True,
     type=str,
-    help="actors required",
+    help="director required",
     location='args'
 )
-
+input_parse.add_argument(
+    'release_date', 
+    required=True,
+    type=str,
+    help="release date required",
+    location='args'
+)
+input_parse.add_argument(
+    'budget', 
+    required=True,
+    type=int,
+    help="budget required",
+    location='args'
+)
 post_input_parse = input_parse.copy()
 post_input_parse.replace_argument('title', location='form')
 post_input_parse.replace_argument('genre', location='form')
 post_input_parse.replace_argument('actors', location='form')
-post_input_parse.replace_argument('country', location='form')
+post_input_parse.replace_argument('director', location='form')
+post_input_parse.replace_argument('release_date', location='form')
+post_input_parse.replace_argument('budget', location='form')

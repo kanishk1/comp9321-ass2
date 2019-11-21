@@ -20,11 +20,13 @@ class Movie_hit_flop_Api(Resource):
         title = args.get('title')
         genre = args.get('genre')
         actors = args.get('actors')
-        country = args.get('country')
-        return {'Bad':'Movie'}
+        director = args.get('director')
+        release_date = args.get('release_date')
+        budget = args.get('budget')
+        return {'result':'Miss'}
 
 revenue_model = api.model('revenue_model', {
-    'result':fields.Integer(description='Revenue Estimated')    
+    'revenue':fields.Integer(description='Revenue Estimated'),
 })
 @api.route('/revenue/')
 class Movie_revenue_Api(Resource):
@@ -39,5 +41,9 @@ class Movie_revenue_Api(Resource):
         title = args.get('title')
         genre = args.get('genre')
         actors = args.get('actors')
-        country = args.get('country')
-        return {'No':'Money'}
+        director = args.get('director')
+        release_date = args.get('release_date')
+        budget = args.get('budget')
+        return {
+            'revenue': 100,
+        }

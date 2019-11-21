@@ -1,6 +1,7 @@
 from flask_restplus import Namespace, Resource, fields, reqparse
 from .JWTAuthentication import auth_required
 from .input_model import post_input_parse, movie_input_model
+from database.models import Status_tracker
 
 api = Namespace('api-info', description='API usage information')
 
@@ -20,7 +21,15 @@ class Usage_api(Resource):
     )
     @auth_required
     def get(self):
-        return {'No':'Usage'}
+        tracker = Status_tracker.query.all()[0]
+        status_results = {
+            "200": tracker._200,
+            "201": tracker._201,
+            "400": tracker._400,
+            "401": tracker._401,
+            "403": tracker._403
+        }
+        return status_results
 
 model = api.model('input', movie_input_model)
 @api.route('/input-movie/')
