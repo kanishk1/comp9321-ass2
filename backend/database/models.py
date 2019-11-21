@@ -17,4 +17,7 @@ class Status_tracker(db.Model):
     _403 = db.Column(db.Integer, default=0)
 
     def increment_status_code(self,code):
-        exec('self._%d += 1'%code)
+        try:
+            exec('self._%d += 1'%code)
+        except:
+            print("Code: " + str(code) + " is not logged")

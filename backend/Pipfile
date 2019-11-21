@@ -13,6 +13,7 @@ flask-migrate = "*"
 click = "*"
 passlib = "*"
 pyjwt = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"

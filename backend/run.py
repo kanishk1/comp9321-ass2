@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 from database.sqlalchemy_config import SQLAchemy_Config
 
@@ -9,6 +10,8 @@ TOKEN_DURATION = 60 * 2
 
 # Creates flask app
 app = Flask(__name__)
+CORS(app)
+
 app.config.from_object(SQLAchemy_Config)
 
 # Setup database
