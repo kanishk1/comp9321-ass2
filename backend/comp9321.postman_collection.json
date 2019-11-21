@@ -392,17 +392,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"genre\": \"Action\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -447,7 +437,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -455,7 +445,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -468,6 +458,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -481,16 +497,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"genre\": \"Action\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -531,7 +538,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -539,7 +546,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -552,6 +559,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -565,16 +598,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -615,7 +639,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -623,7 +647,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -636,6 +660,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -649,13 +699,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"genre\": \"Action\",",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -696,7 +740,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -704,7 +748,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -717,6 +761,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -730,16 +800,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"genre\": \"Action\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -780,7 +841,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -788,7 +849,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -801,6 +862,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -820,17 +907,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"genre\": \"Action\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -875,7 +952,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -883,7 +960,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/success/",
+							"raw": "http://127.0.0.1:5000/movie/success/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -896,6 +973,32 @@
 								"movie",
 								"success",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -909,16 +1012,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"genre\": \"Action\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -959,7 +1053,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -967,7 +1061,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -980,6 +1074,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -993,16 +1113,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1043,7 +1154,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1051,7 +1162,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1064,6 +1175,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -1077,13 +1214,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"genre\": \"Action\",",
-									"    \"country\": \"United States\"",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1124,7 +1255,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1132,7 +1263,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1145,6 +1276,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},
@@ -1158,16 +1315,7 @@
 							"script": {
 								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
 								"exec": [
-									"var body = {",
-									"    \"title\": \"Mission Impossible\",",
-									"    \"genre\": \"Action\",",
-									"    \"actors\": [",
-									"        \"Tom Cruise\",",
-									"        \"Simon Pegg\"",
-									"    ],",
-									"}",
-									"",
-									"pm.environment.set(\"req_body\", body);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1208,7 +1356,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{{req_body}}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1216,7 +1364,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/movie/revenue/",
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=Mission%20Impossible&genre=Action&actors=Tom%20Cruise&actors=Simon%20Pegg&actors=&country=United%20States\n",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1229,6 +1377,32 @@
 								"movie",
 								"revenue",
 								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Mission%20Impossible"
+								},
+								{
+									"key": "genre",
+									"value": "Action"
+								},
+								{
+									"key": "actors",
+									"value": "Tom%20Cruise"
+								},
+								{
+									"key": "actors",
+									"value": "Simon%20Pegg"
+								},
+								{
+									"key": "actors",
+									"value": ""
+								},
+								{
+									"key": "country",
+									"value": "United%20States\n"
+								}
 							]
 						}
 					},

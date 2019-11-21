@@ -19,6 +19,7 @@ input_parse.add_argument(
     'genre', 
     required=True,
     type=str,
+    action='append',
     help="genre required",
     location='args'
 )
