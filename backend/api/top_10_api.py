@@ -1,7 +1,7 @@
 from flask_restplus import Resource, Namespace, fields, reqparse
 from flask import Request
 
-api = Namespace('top 10', description='gives you top 10')
+api = Namespace('top_10', description='gives you top 10')
 
 top10_actors_model = api.model('top10_actors_model', {
     'top10_actors':fields.List(fields.String(description='Actor'))
