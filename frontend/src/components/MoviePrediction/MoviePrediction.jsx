@@ -21,13 +21,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 const MoviePrediction = () => {
+  const [movieInfo, setMovieInfo] = React.useState({});
   const classes = useStyles();
   return (
     <>
-      <MovieForm />
+      <MovieForm setInfo={setMovieInfo} />
       <Box className={classes.predictionContainer}>
-        <PredictHit className={classes.prediction} />
-        <PredictRevenue className={classes.prediction} />
+        <PredictHit className={classes.prediction} movieInfo={movieInfo} />
+        <PredictRevenue className={classes.prediction} movieInfo={movieInfo} />
       </Box>
     </>
   );

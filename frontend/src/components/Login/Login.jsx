@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles } from "@material-ui/core/styles";
 import { AuthContext } from "../Context";
 import { useHistory } from "react-router-dom";
@@ -28,15 +29,41 @@ const Login = () => {
   const history = useHistory();
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
 
-  const handleSubmit = () => {
-    console.log(username, password);
-    setIsLoggedIn(true);
-    history.push("/api-usage");
+  const fetchData = async () => {
+    setIsLoading(true);
+    const data = {
+      username: username,
+      password: password
+    };
+    fetch("/auth/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response =>
+        response.json().then(data => ({ status: response.status, body: data }))
+      )
+      .then(respObj => {
+        setIsLoggedIn(respObj.body.token);
+        setIsLoading(false);
+        if (respObj.status === 200) {
+          history.push("/api-usage");
+        }
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setIsError(true);
+      });
   };
 
   return (
     <>
+      {isError && <div>Oops. Something went wrong ...</div>}
       <form className={classes.container} noValidate autoComplete="off">
         <div>
           <TextField
@@ -69,10 +96,12 @@ const Login = () => {
           variant="contained"
           color="secondary"
           className={classes.button}
-          onClick={handleSubmit}
+          onClick={fetchData}
+          disabled={isLoading}
         >
           Login
         </Button>
+        {isLoading && <CircularProgress />}
       </form>
     </>
   );

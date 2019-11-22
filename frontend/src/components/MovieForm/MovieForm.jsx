@@ -33,7 +33,7 @@ const actors = [
   { title: "Emily Blunt" }
 ];
 
-const MovieForm = () => {
+const MovieForm = props => {
   const classes = useStyles();
   const [movieTitle, setMovieTitle] = React.useState("");
   const [genreList, setGenreList] = React.useState([]);
@@ -41,12 +41,14 @@ const MovieForm = () => {
   const [country, setCountry] = React.useState("");
 
   const handleSubmit = () => {
-    console.log({
+    const info = {
       movie_title: movieTitle,
       genre_list: genreList,
       actor_list: actorList,
       country: country
-    });
+    };
+    console.log(info);
+    props.setInfo(info);
   };
 
   return (
