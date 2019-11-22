@@ -3,38 +3,68 @@ from flask import Request
 
 api = Namespace('top_10', description='gives you top 10')
 
-top10_actors_model = api.model('top10_actors_model', {
-    'top10_actors':fields.List(fields.String(description='Actor'))
+inner_model = api.model('inner_model', {
+    'names': fields.List(fields.String(description='Top 10 Name')),
+    'revenue': fields.List(fields.Integer(description='Revenue corresponding to names')),
+    'input': fields.List(fields.String(description='List of inputs'))
 })
-@api.route('/actors/')
-class Top10_actors_Api(Resource):
-    @api.response(200, 'success', top10_actors_model)
-    @api.doc(
-        description='Provide you the Top 10 Actors'
-    )
-    def get(self):
-        return {'top10_actors': ['Tom Cruise', 'Pikachu']}
 
-top10_genre_model= api.model('top10_genre_model', {
-    'top10_actors':fields.List(fields.String(description='genre'))
+top10_model = api.model('top10_model', {
+    'actors': fields.Nested(inner_model),
+    'directors': fields.Nested(inner_model),
+    'genres': fields.Nested(inner_model)
 })
-@api.route('/genres/')
-class Top10_genre_Api(Resource):
-    @api.response(200, 'success', top10_genre_model)
-    @api.doc(
-        description='Provide you the Top 10 Genres'
-    )
-    def get(self):
-        return {'top10_genres': ['Not Scary', 'Scary']}
 
-top_10_directors_model = api.model('top_10_directors_model ', {
-    'top10_directors':fields.List(fields.String(description='director'))
-})
-@api.route('/directors/')
-class Top10_director_Api(Resource):
-    @api.response(200, 'success', top_10_directors_model )
+input_parse = reqparse.RequestParser()
+input_parse.add_argument(
+    'actors', 
+    type=str, 
+    help="input any actors",
+    location='args',
+    action='append'
+)
+input_parse.add_argument(
+    'directors', 
+    type=str, 
+    help="input any directors",
+    location='args',
+    action='append'
+)
+input_parse.add_argument(
+    'genres', 
+    type=str, 
+    help="input any genres",
+    location='args',
+    action='append'
+)
+
+@api.route('/')
+class Top10_Api(Resource):
+    @api.response(200, 'success', top10_model)
     @api.doc(
-        description='Provide you the Top 10 Directors'
+        description='Provide you the Top 10',
+        parser=input_parse
     )
     def get(self):
-        return {'top10_directors': ['Director 1', 'Director 2']}
+        args = input_parse.parse_args()
+        actors = args.get('actors')
+        directors = args.get('directors')
+        genres = args.get('genres')
+        return {
+            'actors': {
+                'names': ['a', 'b', 'c', 'd', '...'],
+                'revenue': [1, 2, 3, 4, '...'],
+                'input': actors
+            },
+            'directors': {
+                'names': ['a', 'b', 'c', 'd', '...'],
+                'revenue': [1, 2, 3, 4, '...'],
+                'input': directors 
+            },
+            'genres': {
+                'names': ['a', 'b', 'c', 'd', '...'],
+                'revenue': [1, 2, 3, 4, '...'],
+                'input': genres 
+            }
+        }
+
