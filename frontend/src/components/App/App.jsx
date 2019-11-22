@@ -10,6 +10,8 @@ import APIUsage from "../APIUsage";
 import Login from "../Login";
 import DBInput from "../DBInput";
 import SideNav from "../SideNav";
+import DateFnsUtils from "@date-io/date-fns";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
 const drawerWidth = 240;
 
@@ -37,19 +39,21 @@ function App() {
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn: setToken }}>
       <MuiThemeProvider theme={Theme}>
-        <div className="App">
-          <CssBaseline />
-          <NavBar />
-          <SideNav />
-          <main className={classes.content}>
-            <Switch>
-              <Route exact path="/" component={MoviePrediction} />
-              <Route exact path="/admin-login" component={Login} />
-              <PrivateRoute exact path="/api-usage" component={APIUsage} />
-              <PrivateRoute exact path="/db-input" component={DBInput} />
-            </Switch>
-          </main>
-        </div>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <div className="App">
+            <CssBaseline />
+            <NavBar />
+            <SideNav />
+            <main className={classes.content}>
+              <Switch>
+                <Route exact path="/" component={MoviePrediction} />
+                <Route exact path="/admin-login" component={Login} />
+                <PrivateRoute exact path="/api-usage" component={APIUsage} />
+                <PrivateRoute exact path="/db-input" component={DBInput} />
+              </Switch>
+            </main>
+          </div>
+        </MuiPickersUtilsProvider>
       </MuiThemeProvider>
     </AuthContext.Provider>
   );
