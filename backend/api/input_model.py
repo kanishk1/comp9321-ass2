@@ -5,7 +5,7 @@ movie_input_model = {
     'genre': fields.List(fields.String),
     'actors': fields.List(fields.String),
     'director': fields.String,
-    'release_data': fields.String,
+    'release_date': fields.String,
     'budget': fields.Integer
 }
 
@@ -55,9 +55,9 @@ input_parse.add_argument(
     location='args'
 )
 post_input_parse = input_parse.copy()
-post_input_parse.replace_argument('title', location='form')
-post_input_parse.replace_argument('genre', location='form')
-post_input_parse.replace_argument('actors', location='form')
-post_input_parse.replace_argument('director', location='form')
-post_input_parse.replace_argument('release_date', location='form')
-post_input_parse.replace_argument('budget', location='form')
+post_input_parse.replace_argument('title', location='json', required=True)
+post_input_parse.replace_argument('genre', location='json', required=True)
+post_input_parse.replace_argument('actors', location='json', required=True)
+post_input_parse.replace_argument('director', location='json', required=True)
+post_input_parse.replace_argument('release_date', location='json', required=True)
+post_input_parse.replace_argument('budget', location='json', required=True)

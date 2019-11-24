@@ -40,12 +40,30 @@ class Input_movie_api(Resource):
         description='Allows admin to input data into database'
     )
     @api.expect(model, validate=True)
-    @auth_required
+#    @auth_required
     def post(self):
         args = post_input_parse.parse_args()
         title = args.get('title')
         genre = args.get('genre')
+        genre = genre.strip('[]')
         actors = args.get('actors')
-        country = args.get('country')
-        return {'Bad':'Movie'}
+        actors = actors.strip('[]')
+        director = args.get('directors')
+        release_date = args.get('release_date')
+        budget = args.get('budget')
+
+        from run import db
+        from database.models import Movie
+        m = Movie(
+            title=title,
+            genre=genre,
+            actors=actors,
+            director=director,
+            release_date=release_date,
+            budget=budget
+        )
+        db.session.add(m)
+        db.session.commit()
+
+        return "Uploaded data to database, success"
 

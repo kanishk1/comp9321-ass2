@@ -32,14 +32,8 @@ def make_shell_context():
         'models':models,
     }
 
-from database.models import Status_tracker
-# create tracker if doesn't exist
-if not Status_tracker.query.all():
-    status_tracker = Status_tracker()
-    db.session.add(status_tracker)
-    db.session.commit()
-
 # record status code
+from database.models import Status_tracker
 @app.after_request
 def increment_status_code(response):
     tracker = Status_tracker.query.all()[0]
