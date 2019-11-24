@@ -1,16 +1,16 @@
-from flask_restplus import Namespace, Resource, fields, reqparse
-from .input_model import input_parse, movie_input_model
+import os
+
 import pandas as pd
+from flask_restplus import Namespace, Resource, fields
 from sklearn.externals import joblib
 from sklearn.preprocessing import LabelEncoder
-import os
+
+from .input_model import input_parse
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-revenue_ml_model_1 = joblib.load(BASE_DIR + "/models/revenue.pkl")
-success_ml_model_1 = joblib.load(BASE_DIR + "/models/success.pkl")
-revenue_ml_model_2 = joblib.load(BASE_DIR + "/models/revenue2.pkl")
-success_ml_model_2 = joblib.load(BASE_DIR + "/models/success2.pkl")
+revenue_ml_model = joblib.load(BASE_DIR + "/models/revenue.pkl")
+success_ml_model = joblib.load(BASE_DIR + "/models/success.pkl")
 
 api = Namespace('movie', description='Movie Predictions')
 
@@ -45,15 +45,13 @@ class Movie_hit_flop_Api(Resource):
         }, index=[1])
 
         test = new_df.apply(LabelEncoder().fit_transform).values
-        result_1 = success_ml_model_1.predict(test)
-        result_2 = success_ml_model_2.predict(test)
+        result = success_ml_model.predict(test)
+        rating = round(result[0], 2)
 
-        print(new_df.to_string())
-        print(result_1[0])
-        print(result_2[0])
-        rating = round(result_1[0],2)
+        if rating > 0.7:
+            return {'result':'HIT'}
 
-        return {'result':rating}
+        return {'result': 'MISS'}
 
 
 revenue_model = api.model('revenue_model', {
@@ -86,13 +84,8 @@ class Movie_revenue_Api(Resource):
         }, index=[1])
 
         test = new_df.apply(LabelEncoder().fit_transform).values
-        result_1 = revenue_ml_model_1.predict(test)
-        result_2 = revenue_ml_model_2.predict(test)
-
-        print(new_df.to_string())
-        print(result_1[0])
-        print(result_2[0])
-        revenue = round(result_1[0],2)
+        result = revenue_ml_model.predict(test)
+        revenue = round(result[0], 2)
 
         return {
             'revenue': revenue,
