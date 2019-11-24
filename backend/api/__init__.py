@@ -4,6 +4,7 @@ from flask_restplus import Api
 from .movie_api import api as movie_api
 from .auth_api import api as auth_api
 from .info_api import api as info_api
+from .top_10_api import api as top10_api
 
 api = Api(
     title='Movie stuff',
@@ -19,6 +20,7 @@ api = Api(
 )
 
 # add namepsace for swagger description
+api.add_namespace(top10_api)
 api.add_namespace(movie_api)
 api.add_namespace(auth_api)
 api.add_namespace(info_api)
