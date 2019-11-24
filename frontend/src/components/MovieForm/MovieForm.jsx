@@ -3,11 +3,11 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 
 const useStyles = makeStyles(theme => ({
   container: {
-    marginLeft: "25%",
-    marginRight: "25%"
+    width: "100%"
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -33,20 +33,24 @@ const actors = [
   { title: "Emily Blunt" }
 ];
 
-const MovieForm = () => {
+const MovieForm = props => {
   const classes = useStyles();
   const [movieTitle, setMovieTitle] = React.useState("");
   const [genreList, setGenreList] = React.useState([]);
   const [actorList, setActorList] = React.useState([]);
-  const [country, setCountry] = React.useState("");
+  const [director, setDirector] = React.useState("");
+  const [releaseDate, setReleaseDate] = React.useState(null);
 
   const handleSubmit = () => {
-    console.log({
+    const info = {
       movie_title: movieTitle,
       genre_list: genreList,
       actor_list: actorList,
-      country: country
-    });
+      director: director,
+      release_date: releaseDate
+    };
+    console.log(info);
+    props.setInfo(info);
   };
 
   return (
@@ -112,24 +116,41 @@ const MovieForm = () => {
         </div>
         <div>
           <TextField
-            id="outlined-basic-country"
+            id="outlined-basic-director"
             className={classes.textField}
-            label="Country"
+            label="Director"
             margin="normal"
             variant="outlined"
             color="secondary"
             fullWidth={true}
-            placeholder="Enter Country of Production"
-            onChange={e => setCountry(e.target.value)}
+            placeholder="Enter Director of Production"
+            onChange={e => setDirector(e.target.value)}
           />
         </div>
+        <div>
+          <KeyboardDatePicker
+            margin="normal"
+            className={classes.textField}
+            id="date-picker-dialog"
+            label="Release Date"
+            format="dd/MM/yyyy"
+            value={releaseDate}
+            inputVariant="outlined"
+            color="secondary"
+            onChange={setReleaseDate}
+            KeyboardButtonProps={{
+              "aria-label": "change date"
+            }}
+          />
+        </div>
+
         <Button
           variant="contained"
           color="secondary"
           className={classes.button}
           onClick={handleSubmit}
         >
-          Predict
+          Submit
         </Button>
       </form>
     </>
