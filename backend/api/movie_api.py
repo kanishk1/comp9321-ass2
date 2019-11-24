@@ -1,8 +1,16 @@
 from flask_restplus import Namespace, Resource, fields, reqparse
-from ai_model import *
 from .input_model import input_parse, movie_input_model
+import pandas as pd
+from sklearn.externals import joblib
+from sklearn.preprocessing import LabelEncoder
+
+revenue_ml_model_1 = joblib.load("/absolute/path/to/backend/api/models/revenue_1.pkl")
+success_ml_model_1 = joblib.load("/absolute/path/to/backend/api/models/success_1.pkl")
+revenue_ml_model_2 = joblib.load("/absolute/path/to/backend/api/models/revenue_2.pkl")
+success_ml_model_2 = joblib.load("/absolute/path/to/backend/api/models/success_2.pkl")
 
 api = Namespace('movie', description='Movie Predictions')
+
 
 success_model = api.model('success_model', {
     'result':fields.String(description='Hit or Miss')    
@@ -17,13 +25,33 @@ class Movie_hit_flop_Api(Resource):
     )
     def get(self):
         args = input_parse.parse_args()
-        title = args.get('title')
-        genre = args.get('genre')
         actors = args.get('actors')
         director = args.get('director')
-        release_date = args.get('release_date')
         budget = args.get('budget')
-        return {'result':'Miss'}
+        genre = args.get('genre')
+        title = args.get('title')
+        release_date = args.get('release_date')
+
+        new_df = pd.DataFrame({
+            "cast": actors,
+            "director": director,
+            "budget": budget,
+            "genres": genre,
+            "release_date": release_date,
+            "title": title,
+        }, index=[1])
+
+        test = new_df.apply(LabelEncoder().fit_transform).values
+        result_1 = success_ml_model_1.predict(test)
+        result_2 = success_ml_model_2.predict(test)
+
+        print(new_df.to_string())
+        print(result_1[0])
+        print(result_2[0])
+        rating = round(result_1[0],2)
+
+        return {'result':rating}
+
 
 revenue_model = api.model('revenue_model', {
     'revenue':fields.Integer(description='Revenue Estimated'),
@@ -44,6 +72,25 @@ class Movie_revenue_Api(Resource):
         director = args.get('director')
         release_date = args.get('release_date')
         budget = args.get('budget')
+
+        new_df = pd.DataFrame({
+            "cast": actors,
+            "director": director,
+            "budget": budget,
+            "genres": genre,
+            "release_date": release_date,
+            "title": title,
+        }, index=[1])
+
+        test = new_df.apply(LabelEncoder().fit_transform).values
+        result_1 = revenue_ml_model_1.predict(test)
+        result_2 = revenue_ml_model_2.predict(test)
+
+        print(new_df.to_string())
+        print(result_1[0])
+        print(result_2[0])
+        revenue = round(result_1[0],2)
+
         return {
-            'revenue': 100,
+            'revenue': revenue,
         }
