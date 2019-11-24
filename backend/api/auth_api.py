@@ -11,6 +11,10 @@ login_model = api.model('Login', {
     'password': fields.String
 })
 
+token_model = api.model('token_model', {
+    'token': fields.String(description='xxx.yyy.zzz')
+})
+
 credentials_parse = reqparse.RequestParser()
 credentials_parse.add_argument(
     'username', 
@@ -18,17 +22,15 @@ credentials_parse.add_argument(
     type=str, 
     help="username required"
 )
-
 credentials_parse.add_argument(
     'password', 
     required=True,
     type=str,
     help="password required"
 )
-
 @api.route('/login/')
 class Login_Api(Resource):
-    @api.response(200,'success')
+    @api.response(200,'success', token_model)
     @api.doc(description="Authenticated user will receive a token")
     @api.expect(login_model, validate=True)
     def post(self):

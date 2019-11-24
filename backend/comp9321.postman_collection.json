@@ -1,0 +1,2022 @@
+{
+	"info": {
+		"_postman_id": "fee9ade6-e3b5-4ee6-82c4-d0841e414b95",
+		"name": "comp9321",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Login - 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8d5a09a-0883-4bb7-8028-65a482662912",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"JSON has key 'token'\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('token');",
+									"});",
+									"",
+									"pm.test(\"Token Should not be empty/null/undefined\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token).not.eql(null);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"password\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - 400 Empty Body",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8d5a09a-0883-4bb7-8028-65a482662912",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errors).to.have.property('username')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6dc4c69e-08b4-4141-8665-f526fd6c738d",
+								"exec": [
+									"var body = {",
+									"    ",
+									"}",
+									"",
+									"pm.environment.set('req_body', JSON.stringify(body))",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - 400 no username in body",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8d5a09a-0883-4bb7-8028-65a482662912",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6dc4c69e-08b4-4141-8665-f526fd6c738d",
+								"exec": [
+									"var body = {",
+									"    \"password\":\"123456\"",
+									"}",
+									"",
+									"pm.environment.set('req_body', JSON.stringify(body))",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - 400 no password in body",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8d5a09a-0883-4bb7-8028-65a482662912",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6dc4c69e-08b4-4141-8665-f526fd6c738d",
+								"exec": [
+									"var body = {",
+									"    \"username\":\"123456\"",
+									"}",
+									"",
+									"pm.environment.set('req_body', JSON.stringify(body))",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - 401 incorrect credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8d5a09a-0883-4bb7-8028-65a482662912",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6dc4c69e-08b4-4141-8665-f526fd6c738d",
+								"exec": [
+									"var body = {",
+									"    \"username\":\"123456\",",
+									"    \"password\":\"123456\"",
+									"}",
+									"",
+									"pm.environment.set('req_body', JSON.stringify(body))",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "movie/revenue",
+			"item": [
+				{
+					"name": "movie revenue - success",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"body has key result\", function () {",
+									"    jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"revenue\");",
+									"});",
+									"",
+									"pm.test(\"has a revenue\", function () {",
+									"    jsonData = pm.response.json();",
+									"    pm.expect(jsonData.revenue).to.match(/[0-9]+/);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=the%20scary&genre=scary&actors=tom%20hanks&director=christopher%20nolan&release_date=20%2F12%2F2020&budget=1000000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"revenue",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20scary"
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "20%2F12%2F2020"
+								},
+								{
+									"key": "budget",
+									"value": "1000000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie revenue - fail input title",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/revenue/?genre=scary&actors=tom%20hanks&director=christopher%20nolan&release_date=20%2F12%2F2020&budget=1000000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"revenue",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20scary",
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "20%2F12%2F2020"
+								},
+								{
+									"key": "budget",
+									"value": "1000000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie revenue - fail input genre",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=the%20scary&actors=tom%20hanks&director=christopher%20nolan&release_date=20%2F12%2F2020&budget=1000000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"revenue",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20scary"
+								},
+								{
+									"key": "genre",
+									"value": "scary",
+									"disabled": true
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "20%2F12%2F2020"
+								},
+								{
+									"key": "budget",
+									"value": "1000000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie revenue - fail input actors",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=the%20scary&genre=scary&director=christopher%20nolan&release_date=20%2F12%2F2020&budget=1000000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"revenue",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20scary"
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks",
+									"disabled": true
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "20%2F12%2F2020"
+								},
+								{
+									"key": "budget",
+									"value": "1000000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie revenue - fail input budget",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/revenue/?title=the%20scary&genre=scary&actors=tom%20hanks&director=christopher%20nolan&release_date=20%2F12%2F2020",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"revenue",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20scary"
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "20%2F12%2F2020"
+								},
+								{
+									"key": "budget",
+									"value": "1000000000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "movie/success",
+			"item": [
+				{
+					"name": "movie success- success",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"body has key result\", function () {",
+									"    jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"result\");",
+									"});",
+									"",
+									"pm.test(\"has a response hit or miss\", function () {",
+									"    jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.match(/[0-5]\\.[0-9]/);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/success/?title=the%20one&genre=scary&actors=tom%20hanks&director=christopher%20nolan&release_date=21-20-2019&budget=10000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"success",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20one"
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "21-20-2019"
+								},
+								{
+									"key": "budget",
+									"value": "10000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie success - fail input title",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/success/?genre=scary&actors=tom%20hanks&director=christopher%20nolan&release_date=21-20-2019&budget=10000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"success",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20one",
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "21-20-2019"
+								},
+								{
+									"key": "budget",
+									"value": "10000000"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie success - fail input genre",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/success/?title=the%20one&actors=tom%20hanks&director=christopher%20nolan&release_date=21-20-2019&budget=10000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"success",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20one"
+								},
+								{
+									"key": "genre",
+									"value": "scary",
+									"disabled": true
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "21-20-2019"
+								},
+								{
+									"key": "budget",
+									"value": "10000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie success - fail input actors",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/success/?title=the%20one&genre=scary&director=christopher%20nolan&release_date=21-20-2019&budget=10000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"success",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20one"
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks",
+									"disabled": true
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "21-20-2019"
+								},
+								{
+									"key": "budget",
+									"value": "10000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie success - fail input budget",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movie/success/?title=the%20one&genre=scary&actors=tom%20hanks&director=christopher%20nolan&release_date=21-20-2019",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"success",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "the%20one"
+								},
+								{
+									"key": "genre",
+									"value": "scary"
+								},
+								{
+									"key": "actors",
+									"value": "tom%20hanks"
+								},
+								{
+									"key": "director",
+									"value": "christopher%20nolan"
+								},
+								{
+									"key": "release_date",
+									"value": "21-20-2019"
+								},
+								{
+									"key": "",
+									"value": "10000000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "input-data",
+			"item": [
+				{
+					"name": "input-data - response invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d75a4118-f524-481c-9f8a-3968990158c9",
+								"exec": [
+									"pm.test(\"invalid token\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "857f293c-fa24-49c9-9c87-731b01293a94",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "11111111111111",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjEzNzQxfQ.3mED8y_2zgAzvYPsAl3dSik9nwlvU2OWNG6yvKsnXX",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"genre\": [\n    \"string\"\n  ],\n  \"actors\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_data\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"input-movie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "input data - success",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjE2NzEyfQ.CvCbTmrULgazEP2FoxGuV-FUoR5EiNeEQslzMxmzY-c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"genre\": [\n    \"string\"\n  ],\n  \"actors\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_date\": \"string\",\n  \"budget\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"input-movie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "input data - fail input title",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjEzOTk0fQ.h-kvkZV5pXp1DMGT3togSxutplhhc6MGuBSdLvQye8w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"genre\": [\n    \"string\"\n  ],\n  \"actors\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_data\": \"string\",\n  \"budget\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"input-movie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "input data - fail input genre",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"actors\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_data\": \"string\",\n  \"budget\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"input-movie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "input data - fail input actors",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AUTH-TOKEN",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"genre\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_data\": \"string\",\n  \"budget\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"input-movie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "input data - fail input director",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef5a64e-48cc-469d-add6-6d45eadba3a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"incorrect JSON formatting response\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('errors')",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.be.a('string')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"string\",\n  \"genre\": [\n    \"string\"\n  ],\n  \"actors\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_data\": \"string\",\n  \"budget\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"input-movie",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "api-info",
+			"item": [
+				{
+					"name": "api usage - response invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d75a4118-f524-481c-9f8a-3968990158c9",
+								"exec": [
+									"pm.test(\"invalid token\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "111111111",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjE2NjU4fQ.trVBiU_NGtUSbVmt8i3dWbuad4li7oGRa-1wimVGKuo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/usage/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"usage",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api usage - response  valid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d75a4118-f524-481c-9f8a-3968990158c9",
+								"exec": [
+									"pm.test(\"valid token\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Usage records\", function(){",
+									"    var dataJson = pm.response.json()",
+									"    pm.expect(dataJson).to.have.property(\"_404\");",
+									"    pm.expect(dataJson).to.have.property(\"_400\");",
+									"    pm.expect(dataJson).to.have.property(\"_401\");",
+									"    pm.expect(dataJson).to.have.property(\"_403\");",
+									"    pm.expect(dataJson).to.have.property(\"_200\");",
+									"    pm.expect(dataJson).to.have.property(\"_201\");",
+									"    pm.expect(dataJson).to.have.property(\"chart\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjE2OTEwfQ.X5nRneQqefJTG7-sjo_PkaUlUhZQXX9bUrWkpWR0YEQ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api-info/usage/?",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api-info",
+								"usage",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

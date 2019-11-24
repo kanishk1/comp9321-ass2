@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 from database.sqlalchemy_config import SQLAchemy_Config
 
@@ -9,7 +10,10 @@ TOKEN_DURATION = 60 * 2
 
 # Creates flask app
 app = Flask(__name__)
+CORS(app)
+
 app.config.from_object(SQLAchemy_Config)
+app.config['ERROR_404_HELP'] = False
 
 # Setup database
 db = SQLAlchemy(app)
@@ -28,14 +32,8 @@ def make_shell_context():
         'models':models,
     }
 
-from database.models import Status_tracker
-# create tracker if doesn't exist
-if not Status_tracker.query.all():
-    status_tracker = Status_tracker()
-    db.session.add(status_tracker)
-    db.session.commit()
-
 # record status code
+from database.models import Status_tracker
 @app.after_request
 def increment_status_code(response):
     tracker = Status_tracker.query.all()[0]
