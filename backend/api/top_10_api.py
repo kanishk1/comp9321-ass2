@@ -3,8 +3,14 @@ from flask_restplus import Resource, Namespace, fields, reqparse
 
 api = Namespace('top_10', description='gives you top 10')
 
-df = pd.read_csv("../../resources/final_use.csv")
-df = df.dropna(axis=0)
+actors_df = pd.read_csv("../../resources/actors.csv")
+actors_df.dropna(axis=0, inplace=True)
+
+directors_df = pd.read_csv("../../resources/directors.csv")
+directors_df.dropna(axis=0, inplace=True)
+
+genres_df = pd.read_csv("../../resources/genres.csv")
+genres_df.dropna(axis=0, inplace=True)
 
 inner_model = api.model('inner_model', {
     'names': fields.List(fields.String(description='Top 10 Name')),
@@ -42,14 +48,14 @@ input_parse.add_argument(
 )
 
 def get_top():
-    actor_group = df.sort_values(by="cast").groupby(['cast'], sort=False)
-    top_actors = actor_group['revenue'].max().sort_values(ascending=False)
+    actor_group = actors_df.sort_values(by="actor").groupby(['actor'], sort=False)
+    top_actors = actor_group['revenue'].cumsum().sort_values(ascending=False)
 
-    director_group = df.sort_values(by="director").groupby(['director'], sort=False)
-    top_directors = director_group['revenue'].max().sort_values(ascending=False)
+    director_group = directors_df.sort_values(by="director").groupby(['director'], sort=False)
+    top_directors = director_group['revenue'].cumsum().sort_values(ascending=False)
 
-    genre_group = df.groupby(['genres'], sort=False)
-    top_genres = genre_group['revenue'].max().sort_values(ascending=False)
+    genre_group = genres_df.groupby(['genre'], sort=False)
+    top_genres = genre_group['revenue'].cumsum().sort_values(ascending=False)
 
     top_actors = top_actors.head(10).to_dict()
     top_directors = top_directors.head(10).to_dict()
