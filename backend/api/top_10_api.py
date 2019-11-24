@@ -1,7 +1,16 @@
+import pandas as pd
 from flask_restplus import Resource, Namespace, fields, reqparse
-from flask import Request
 
 api = Namespace('top_10', description='gives you top 10')
+
+actors_df = pd.read_csv("../../resources/actors.csv")
+actors_df.dropna(axis=0, inplace=True)
+
+directors_df = pd.read_csv("../../resources/directors.csv")
+directors_df.dropna(axis=0, inplace=True)
+
+genres_df = pd.read_csv("../../resources/genres.csv")
+genres_df.dropna(axis=0, inplace=True)
 
 inner_model = api.model('inner_model', {
     'names': fields.List(fields.String(description='Top 10 Name')),
@@ -38,6 +47,23 @@ input_parse.add_argument(
     action='append'
 )
 
+def get_top():
+    actor_group = actors_df.sort_values(by="actor").groupby(['actor'], sort=False)
+    top_actors = actor_group['revenue'].cumsum().sort_values(ascending=False)
+
+    director_group = directors_df.sort_values(by="director").groupby(['director'], sort=False)
+    top_directors = director_group['revenue'].cumsum().sort_values(ascending=False)
+
+    genre_group = genres_df.groupby(['genre'], sort=False)
+    top_genres = genre_group['revenue'].cumsum().sort_values(ascending=False)
+
+    top_actors = top_actors.head(10).to_dict()
+    top_directors = top_directors.head(10).to_dict()
+    top_genres = top_genres.head(10).to_dict()
+
+    return top_actors, top_directors, top_genres
+
+
 @api.route('/')
 class Top10_Api(Resource):
     @api.response(200, 'success', top10_model)
@@ -50,21 +76,23 @@ class Top10_Api(Resource):
         actors = args.get('actors')
         directors = args.get('directors')
         genres = args.get('genres')
+
+        top_actors, top_directors, top_genres = get_top()
+
         return {
             'actors': {
-                'names': ['a', 'b', 'c', 'd', '...'],
-                'revenue': [1, 2, 3, 4, '...'],
+                'names': list(top_actors.keys()),
+                'revenue': list(top_actors.values()),
                 'input': actors
             },
             'directors': {
-                'names': ['a', 'b', 'c', 'd', '...'],
-                'revenue': [1, 2, 3, 4, '...'],
-                'input': directors 
+                'names': list(top_directors.keys()),
+                'revenue': list(top_directors.values()),
+                'input': directors
             },
             'genres': {
-                'names': ['a', 'b', 'c', 'd', '...'],
-                'revenue': [1, 2, 3, 4, '...'],
-                'input': genres 
+                'names': list(top_genres.keys()),
+                'revenue': list(top_genres.values()),
+                'input': genres
             }
         }
-

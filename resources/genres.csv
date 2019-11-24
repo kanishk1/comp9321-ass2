@@ -1,0 +1,810 @@
+genre,revenue,title
+Crime,4300000.0,Four Rooms
+Comedy,4300000.0,Four Rooms
+Adventure,346079773.0,Pocahontas
+Animation,346079773.0,Pocahontas
+Drama,346079773.0,Pocahontas
+Family,346079773.0,Pocahontas
+Comedy,1275000.0,Blue in the Face
+Comedy,8349430.0,Smoke
+Drama,8349430.0,Smoke
+Comedy,247275374.0,Dumb and Dumber
+Family,788241776.0,The Lion King
+Animation,788241776.0,The Lion King
+Drama,788241776.0,The Lion King
+Drama,27900000.0,Menace II Society
+Action,27900000.0,Menace II Society
+Crime,27900000.0,Menace II Society
+Adventure,20915465.0,Super Mario Bros.
+Comedy,20915465.0,Super Mario Bros.
+Family,20915465.0,Super Mario Bros.
+Fantasy,20915465.0,Super Mario Bros.
+Fantasy,13670688.0,The Pagemaster
+Science Fiction,13670688.0,The Pagemaster
+Family,13670688.0,The Pagemaster
+Animation,13670688.0,The Pagemaster
+Animation,504050219.0,Aladdin
+Family,504050219.0,Aladdin
+Comedy,504050219.0,Aladdin
+Adventure,504050219.0,Aladdin
+Fantasy,504050219.0,Aladdin
+Romance,504050219.0,Aladdin
+Romance,377350553.0,Beauty and the Beast
+Family,377350553.0,Beauty and the Beast
+Animation,377350553.0,Beauty and the Beast
+Fantasy,377350553.0,Beauty and the Beast
+Music,377350553.0,Beauty and the Beast
+Animation,84300000.0,Pinocchio
+Family,84300000.0,Pinocchio
+Horror,16675000.0,Hellraiser: Bloodline
+Thriller,16675000.0,Hellraiser: Bloodline
+Science Fiction,16675000.0,Hellraiser: Bloodline
+Drama,100138851.0,The Hunchback of Notre Dame
+Animation,100138851.0,The Hunchback of Notre Dame
+Family,100138851.0,The Hunchback of Notre Dame
+Comedy,25023434.0,Kingpin
+Crime,7011317.0,Bound
+Drama,7011317.0,Bound
+Romance,7011317.0,Bound
+Thriller,7011317.0,Bound
+Fantasy,49627779.0,The Island of Dr. Moreau
+Horror,49627779.0,The Island of Dr. Moreau
+Science Fiction,49627779.0,The Island of Dr. Moreau
+Comedy,7200000.0,Singin' in the Rain
+Music,7200000.0,Singin' in the Rain
+Romance,7200000.0,Singin' in the Rain
+Action,3981000.0,The Adventures of Robin Hood
+Adventure,3981000.0,The Adventures of Robin Hood
+Romance,3981000.0,The Adventures of Robin Hood
+Family,263591415.0,Cinderella
+Fantasy,263591415.0,Cinderella
+Animation,263591415.0,Cinderella
+Romance,263591415.0,Cinderella
+Animation,1600000.0,Dumbo
+Family,1600000.0,Dumbo
+Animation,572000000.0,Alice in Wonderland
+Adventure,572000000.0,Alice in Wonderland
+Family,572000000.0,Alice in Wonderland
+Fantasy,572000000.0,Alice in Wonderland
+Adventure,29800000.0,The Fox and the Hound
+Animation,29800000.0,The Fox and the Hound
+Drama,29800000.0,The Fox and the Hound
+Family,29800000.0,The Fox and the Hound
+Adventure,5028948.0,Monty Python and the Holy Grail
+Comedy,5028948.0,Monty Python and the Holy Grail
+Fantasy,5028948.0,Monty Python and the Holy Grail
+Animation,83320000.0,Fantasia
+Family,83320000.0,Fantasia
+Music,83320000.0,Fantasia
+Comedy,29180280.0,Raising Arizona
+Crime,29180280.0,Raising Arizona
+Action,17979739.0,Turbo: A Power Rangers Movie
+Adventure,17979739.0,Turbo: A Power Rangers Movie
+Family,17979739.0,Turbo: A Power Rangers Movie
+Fantasy,17979739.0,Turbo: A Power Rangers Movie
+Science Fiction,17979739.0,Turbo: A Power Rangers Movie
+Thriller,17979739.0,Turbo: A Power Rangers Movie
+Animation,252712101.0,Hercules
+Family,252712101.0,Hercules
+Fantasy,252712101.0,Hercules
+Adventure,252712101.0,Hercules
+Comedy,252712101.0,Hercules
+Romance,252712101.0,Hercules
+Animation,139804348.0,Anastasia
+Family,139804348.0,Anastasia
+Comedy,45779.0,"An Alan Smithee Film: Burn, Hollywood, Burn"
+Comedy,25605015.0,Can't Hardly Wait
+Drama,25605015.0,Can't Hardly Wait
+Romance,25605015.0,Can't Hardly Wait
+Animation,304320254.0,Mulan
+Family,304320254.0,Mulan
+Adventure,304320254.0,Mulan
+Romance,369884651.0,There's Something About Mary
+Comedy,369884651.0,There's Something About Mary
+Crime,43656822.0,West Side Story
+Drama,43656822.0,West Side Story
+Music,43656822.0,West Side Story
+Action,84563118.0,The Poseidon Adventure
+Adventure,84563118.0,The Poseidon Adventure
+Animation,267447150.0,Bambi
+Drama,267447150.0,Bambi
+Family,267447150.0,Bambi
+Animation,21288692.0,The Black Cauldron
+Comedy,38625550.0,The Great Mouse Detective
+Animation,38625550.0,The Great Mouse Detective
+Family,38625550.0,The Great Mouse Detective
+Animation,222300000.0,The Little Mermaid
+Family,222300000.0,The Little Mermaid
+Adventure,215880014.0,One Hundred and One Dalmatians
+Animation,215880014.0,One Hundred and One Dalmatians
+Comedy,215880014.0,One Hundred and One Dalmatians
+Family,215880014.0,One Hundred and One Dalmatians
+Animation,87404651.0,Peter Pan
+Music,87404651.0,Peter Pan
+Family,87404651.0,Peter Pan
+Adventure,87404651.0,Peter Pan
+Fantasy,87404651.0,Peter Pan
+Adventure,47431461.0,The Rescuers Down Under
+Animation,47431461.0,The Rescuers Down Under
+Crime,47431461.0,The Rescuers Down Under
+Family,47431461.0,The Rescuers Down Under
+Fantasy,47431461.0,The Rescuers Down Under
+Fantasy,71215869.0,The Rescuers
+Family,71215869.0,The Rescuers
+Animation,71215869.0,The Rescuers
+Adventure,71215869.0,The Rescuers
+Fantasy,51000000.0,Sleeping Beauty
+Animation,51000000.0,Sleeping Beauty
+Romance,51000000.0,Sleeping Beauty
+Family,51000000.0,Sleeping Beauty
+Drama,27100027.0,All Dogs Go to Heaven
+Animation,27100027.0,All Dogs Go to Heaven
+Family,27100027.0,All Dogs Go to Heaven
+Comedy,27100027.0,All Dogs Go to Heaven
+Fantasy,27100027.0,All Dogs Go to Heaven
+Fantasy,40577001.0,The Dark Crystal
+Adventure,171757863.0,Antz
+Animation,171757863.0,Antz
+Comedy,171757863.0,Antz
+Family,171757863.0,Antz
+Animation,100491683.0,The Rugrats Movie
+Family,100491683.0,The Rugrats Movie
+Action,10000000.0,King Kong
+Adventure,10000000.0,King Kong
+Drama,10000000.0,King Kong
+Horror,10000000.0,King Kong
+Adventure,218613188.0,The Prince of Egypt
+Animation,218613188.0,The Prince of Egypt
+Drama,218613188.0,The Prince of Egypt
+Family,218613188.0,The Prince of Egypt
+Music,218613188.0,The Prince of Egypt
+Action,463517383.0,The Matrix
+Science Fiction,463517383.0,The Matrix
+Comedy,2091037.0,It Came from Hollywood
+Documentary,2091037.0,It Came from Hollywood
+Adventure,448000000.0,Tarzan
+Animation,448000000.0,Tarzan
+Drama,448000000.0,Tarzan
+Family,448000000.0,Tarzan
+Comedy,235483004.0,American Pie
+Romance,235483004.0,American Pie
+Horror,248000000.0,The Blair Witch Project
+Mystery,248000000.0,The Blair Witch Project
+Action,26518355.0,Damien: Omen II
+Drama,26518355.0,Damien: Omen II
+Horror,26518355.0,Damien: Omen II
+Thriller,26518355.0,Damien: Omen II
+Comedy,83453539.0,Airplane!
+Drama,23438120.0,Caligula
+History,23438120.0,Caligula
+Romance,23438120.0,Caligula
+Animation,11373501.0,Thumbelina
+Drama,11373501.0,Thumbelina
+Family,11373501.0,Thumbelina
+Fantasy,11373501.0,Thumbelina
+Drama,966878.0,Sparrows
+Drama,10508.0,Naturally Native
+Action,50100000.0,The Longest Day
+Drama,50100000.0,The Longest Day
+History,50100000.0,The Longest Day
+War,50100000.0,The Longest Day
+History,29548291.0,Tora! Tora! Tora!
+Action,29548291.0,Tora! Tora! Tora!
+Drama,29548291.0,Tora! Tora! Tora!
+Adventure,29548291.0,Tora! Tora! Tora!
+War,29548291.0,Tora! Tora! Tora!
+Animation,90874570.0,Fantasia 2000
+Family,90874570.0,Fantasia 2000
+Music,90874570.0,Fantasia 2000
+Horror,14828081.0,Supernova
+Science Fiction,14828081.0,Supernova
+Thriller,14828081.0,Supernova
+Action,5617391.0,Batman: Mask of the Phantasm
+Adventure,5617391.0,Batman: Mask of the Phantasm
+Animation,5617391.0,Batman: Mask of the Phantasm
+Family,5617391.0,Batman: Mask of the Phantasm
+Adventure,76432727.0,The Road to El Dorado
+Animation,76432727.0,The Road to El Dorado
+Comedy,76432727.0,The Road to El Dorado
+Family,76432727.0,The Road to El Dorado
+Drama,4000000.0,The Lords of Flatbush
+Animation,354248063.0,Dinosaur
+Family,354248063.0,Dinosaur
+Action,36230219.0,Mad Max Beyond Thunderdome
+Adventure,36230219.0,Mad Max Beyond Thunderdome
+Science Fiction,36230219.0,Mad Max Beyond Thunderdome
+Animation,36754634.0,Titan A.E.
+Action,36754634.0,Titan A.E.
+Science Fiction,36754634.0,Titan A.E.
+Family,36754634.0,Titan A.E.
+Adventure,36754634.0,Titan A.E.
+Animation,224834564.0,Chicken Run
+Comedy,224834564.0,Chicken Run
+Family,224834564.0,Chicken Run
+Comedy,149270999.0,"Me, Myself & Irene"
+Adventure,484409218.0,Shrek
+Animation,484409218.0,Shrek
+Comedy,484409218.0,Shrek
+Family,484409218.0,Shrek
+Fantasy,484409218.0,Shrek
+Animation,186053725.0,Atlantis: The Lost Empire
+Family,186053725.0,Atlantis: The Lost Empire
+Adventure,186053725.0,Atlantis: The Lost Empire
+Science Fiction,186053725.0,Atlantis: The Lost Empire
+Adventure,85131830.0,Final Fantasy: The Spirits Within
+Action,85131830.0,Final Fantasy: The Spirits Within
+Animation,85131830.0,Final Fantasy: The Spirits Within
+Fantasy,85131830.0,Final Fantasy: The Spirits Within
+Science Fiction,85131830.0,Final Fantasy: The Spirits Within
+Thriller,85131830.0,Final Fantasy: The Spirits Within
+Action,14697005.0,Kickboxer
+Thriller,14697005.0,Kickboxer
+Action,63408614.0,Tango & Cash
+Adventure,63408614.0,Tango & Cash
+Comedy,63408614.0,Tango & Cash
+Adventure,13596911.0,Osmosis Jones
+Animation,13596911.0,Osmosis Jones
+Action,13596911.0,Osmosis Jones
+Comedy,13596911.0,Osmosis Jones
+Family,13596911.0,Osmosis Jones
+Horror,74558115.0,From Hell
+Mystery,74558115.0,From Hell
+Thriller,74558115.0,From Hell
+Comedy,141069860.0,Shallow Hal
+Romance,141069860.0,Shallow Hal
+Comedy,14782676.0,Out Cold
+Adventure,109862682.0,Return to Never Land
+Fantasy,109862682.0,Return to Never Land
+Animation,109862682.0,Return to Never Land
+Family,109862682.0,Return to Never Land
+Fantasy,71368.0,A Troll in Central Park
+Animation,71368.0,A Troll in Central Park
+Science Fiction,71368.0,A Troll in Central Park
+Family,71368.0,A Troll in Central Park
+Drama,129000000.0,About a Boy
+Comedy,129000000.0,About a Boy
+Romance,129000000.0,About a Boy
+Western,122563539.0,Spirit: Stallion of the Cimarron
+Animation,122563539.0,Spirit: Stallion of the Cimarron
+Adventure,122563539.0,Spirit: Stallion of the Cimarron
+Comedy,122563539.0,Spirit: Stallion of the Cimarron
+Family,122563539.0,Spirit: Stallion of the Cimarron
+Animation,145771527.0,Lilo & Stitch
+Family,145771527.0,Lilo & Stitch
+Documentary,1434436.0,The Kid Stays in the Picture
+Comedy,20458340.0,Top Secret!
+Action,43928932.0,The Transporter
+Crime,43928932.0,The Transporter
+Thriller,43928932.0,The Transporter
+Crime,12000000.0,Knockaround Guys
+Thriller,12000000.0,Knockaround Guys
+Adventure,41744718.0,Casino Royale
+Action,41744718.0,Casino Royale
+Comedy,41744718.0,Casino Royale
+Adventure,109578115.0,Treasure Planet
+Animation,109578115.0,Treasure Planet
+Family,109578115.0,Treasure Planet
+Fantasy,109578115.0,Treasure Planet
+Science Fiction,109578115.0,Treasure Planet
+Adventure,738599701.0,The Matrix Reloaded
+Action,738599701.0,The Matrix Reloaded
+Thriller,738599701.0,The Matrix Reloaded
+Science Fiction,738599701.0,The Matrix Reloaded
+Family,26288320.0,Sinbad: Legend of the Seven Seas
+Animation,26288320.0,Sinbad: Legend of the Seven Seas
+Adventure,26288320.0,Sinbad: Legend of the Seven Seas
+Comedy,742898.0,Party Monster
+Drama,742898.0,Party Monster
+Crime,742898.0,Party Monster
+Adventure,424988211.0,The Matrix Revolutions
+Action,424988211.0,The Matrix Revolutions
+Thriller,424988211.0,The Matrix Revolutions
+Science Fiction,424988211.0,The Matrix Revolutions
+Adventure,9000000.0,Ben-Hur: A Tale of the Christ
+Drama,9000000.0,Ben-Hur: A Tale of the Christ
+Western,9012000.0,Red River
+Comedy,33828318.0,Stuck on You
+Science Fiction,96060858.0,The Butterfly Effect
+Thriller,96060858.0,The Butterfly Effect
+Family,16702864.0,Catch That Kid
+Action,16702864.0,Catch That Kid
+Adventure,16702864.0,Catch That Kid
+Animation,103951461.0,Home on the Range
+Family,103951461.0,Home on the Range
+Drama,447741.0,Ken Park
+Adventure,919838758.0,Shrek 2
+Animation,919838758.0,Shrek 2
+Comedy,919838758.0,Shrek 2
+Family,919838758.0,Shrek 2
+Fantasy,919838758.0,Shrek 2
+History,50000000.0,How the West Was Won
+Western,50000000.0,How the West Was Won
+Adventure,50000000.0,How the West Was Won
+Animation,367275019.0,Shark Tale
+Action,367275019.0,Shark Tale
+Comedy,367275019.0,Shark Tale
+Family,367275019.0,Shark Tale
+Drama,29450919.0,Twilight Zone: The Movie
+Fantasy,29450919.0,Twilight Zone: The Movie
+Horror,29450919.0,Twilight Zone: The Movie
+Science Fiction,29450919.0,Twilight Zone: The Movie
+Thriller,29450919.0,Twilight Zone: The Movie
+Documentary,3515061.0,Born into Brothels
+Action,8000000.0,Hell's Angels
+Drama,8000000.0,Hell's Angels
+History,8000000.0,Hell's Angels
+Animation,260696994.0,Robots
+Comedy,260696994.0,Robots
+Family,260696994.0,Robots
+Science Fiction,260696994.0,Robots
+Action,158733820.0,Sin City
+Thriller,158733820.0,Sin City
+Crime,158733820.0,Sin City
+Comedy,50451307.0,Fever Pitch
+Drama,50451307.0,Fever Pitch
+Romance,50451307.0,Fever Pitch
+Family,532680671.0,Madagascar
+Animation,532680671.0,Madagascar
+Drama,30000000.0,Quo Vadis
+History,30000000.0,Quo Vadis
+Romance,30000000.0,Quo Vadis
+Documentary,1750211.0,Murderball
+Romance,117195061.0,Corpse Bride
+Fantasy,117195061.0,Corpse Bride
+Animation,117195061.0,Corpse Bride
+Music,117195061.0,Corpse Bride
+Adventure,192452832.0,The Curse of the Were-Rabbit
+Animation,192452832.0,The Curse of the Were-Rabbit
+Comedy,192452832.0,The Curse of the Were-Rabbit
+Family,192452832.0,The Curse of the Were-Rabbit
+Action,10000000.0,55 Days at Peking
+Drama,10000000.0,55 Days at Peking
+History,10000000.0,55 Days at Peking
+Animation,51053787.0,Hoodwinked!
+Comedy,51053787.0,Hoodwinked!
+Family,51053787.0,Hoodwinked!
+Comedy,48548426.0,Date Movie
+Comedy,343397247.0,Over the Hedge
+Animation,343397247.0,Over the Hedge
+Family,343397247.0,Over the Hedge
+Animation,461983149.0,Cars
+Adventure,461983149.0,Cars
+Comedy,461983149.0,Cars
+Family,461983149.0,Cars
+Comedy,130431368.0,"You, Me and Dupree"
+Romance,130431368.0,"You, Me and Dupree"
+Comedy,100523181.0,Little Miss Sunshine
+Drama,100523181.0,Little Miss Sunshine
+Action,42931041.0,Crank
+Thriller,42931041.0,Crank
+Crime,42931041.0,Crank
+Fantasy,1606624.0,Cabin in the Sky
+Music,1606624.0,Cabin in the Sky
+Adventure,197309027.0,Open Season
+Animation,197309027.0,Open Season
+Family,197309027.0,Open Season
+Adventure,64459316.0,Flushed Away
+Animation,64459316.0,Flushed Away
+Comedy,64459316.0,Flushed Away
+Family,64459316.0,Flushed Away
+Animation,38085778.0,Happily N'Ever After
+Comedy,38085778.0,Happily N'Ever After
+Family,38085778.0,Happily N'Ever After
+Fantasy,38085778.0,Happily N'Ever After
+Science Fiction,38085778.0,Happily N'Ever After
+Action,86865564.0,Epic Movie
+Adventure,86865564.0,Epic Movie
+Comedy,86865564.0,Epic Movie
+Mystery,1109660.0,The Messengers
+Thriller,1109660.0,The Messengers
+Horror,1109660.0,The Messengers
+Animation,623722818.0,Ratatouille
+Comedy,623722818.0,Ratatouille
+Family,623722818.0,Ratatouille
+Fantasy,623722818.0,Ratatouille
+Fantasy,798958165.0,Shrek the Third
+Adventure,798958165.0,Shrek the Third
+Animation,798958165.0,Shrek the Third
+Comedy,798958165.0,Shrek the Third
+Family,798958165.0,Shrek the Third
+Adventure,300000.0,Ten Canoes
+Comedy,300000.0,Ten Canoes
+Drama,300000.0,Ten Canoes
+Animation,149044513.0,Surf's Up
+Comedy,149044513.0,Surf's Up
+Family,149044513.0,Surf's Up
+Science Fiction,15071514.0,The Invasion
+Thriller,15071514.0,The Invasion
+Comedy,47738099.0,The Nanny Diaries
+Drama,47738099.0,The Nanny Diaries
+Romance,47738099.0,The Nanny Diaries
+Comedy,127766650.0,The Heartbreak Kid
+Family,287594577.0,Bee Movie
+Animation,287594577.0,Bee Movie
+Adventure,287594577.0,Bee Movie
+Comedy,287594577.0,Bee Movie
+Crime,171600000.0,No Country for Old Men
+Drama,171600000.0,No Country for Old Men
+Thriller,171600000.0,No Country for Old Men
+Fantasy,41797066.0,Aliens vs Predator: Requiem
+Action,41797066.0,Aliens vs Predator: Requiem
+Science Fiction,41797066.0,Aliens vs Predator: Requiem
+Thriller,41797066.0,Aliens vs Predator: Requiem
+Horror,41797066.0,Aliens vs Predator: Requiem
+Comedy,84646831.0,Meet the Spartans
+Drama,56309766.0,The Eye
+Horror,56309766.0,The Eye
+Thriller,56309766.0,The Eye
+Music,22730842.0,U2 3D
+Documentary,22730842.0,U2 3D
+Animation,297138014.0,Horton Hears a Who!
+Comedy,297138014.0,Horton Hears a Who!
+Family,297138014.0,Horton Hears a Who!
+Adventure,297138014.0,Horton Hears a Who!
+Fantasy,297138014.0,Horton Hears a Who!
+Adventure,100076342.0,Nim's Island
+Comedy,100076342.0,Nim's Island
+Family,100076342.0,Nim's Island
+Fantasy,100076342.0,Nim's Island
+Comedy,43493123.0,Harold & Kumar Escape from Guantanamo Bay
+Adventure,43493123.0,Harold & Kumar Escape from Guantanamo Bay
+Action,93945766.0,Speed Racer
+Family,93945766.0,Speed Racer
+Science Fiction,93945766.0,Speed Racer
+Comedy,346592.0,Meet Bill
+Drama,346592.0,Meet Bill
+Romance,346592.0,Meet Bill
+Adventure,631744560.0,Kung Fu Panda
+Animation,631744560.0,Kung Fu Panda
+Family,631744560.0,Kung Fu Panda
+Comedy,631744560.0,Kung Fu Panda
+Comedy,163720069.0,Burn After Reading
+Drama,163720069.0,Burn After Reading
+Action,14109284.0,Disaster Movie
+Comedy,14109284.0,Disaster Movie
+Action,42487390.0,Bangkok Dangerous
+Crime,42487390.0,Bangkok Dangerous
+Thriller,42487390.0,Bangkok Dangerous
+Family,603900354.0,Madagascar: Escape 2 Africa
+Animation,603900354.0,Madagascar: Escape 2 Africa
+Animation,309979994.0,Bolt
+Family,309979994.0,Bolt
+Adventure,309979994.0,Bolt
+Comedy,309979994.0,Bolt
+Adventure,50877145.0,The Tale of Despereaux
+Animation,50877145.0,The Tale of Despereaux
+Family,50877145.0,The Tale of Despereaux
+Comedy,11657385.0,Rock-A-Doodle
+Family,11657385.0,Rock-A-Doodle
+Animation,11657385.0,Rock-A-Doodle
+Fantasy,11657385.0,Rock-A-Doodle
+Music,11657385.0,Rock-A-Doodle
+Animation,381509870.0,Monsters vs Aliens
+Family,381509870.0,Monsters vs Aliens
+Adventure,381509870.0,Monsters vs Aliens
+Science Fiction,381509870.0,Monsters vs Aliens
+Action,34560577.0,Crank: High Voltage
+Thriller,34560577.0,Crank: High Voltage
+Crime,34560577.0,Crank: High Voltage
+Documentary,109000000.0,Earth
+Drama,7202.0,Special
+Fantasy,7202.0,Special
+Science Fiction,7202.0,Special
+Action,250000.0,The Fast and the Furious
+Crime,250000.0,The Fast and the Furious
+Drama,250000.0,The Fast and the Furious
+Action,40828540.0,Gamer
+Thriller,40828540.0,Gamer
+Science Fiction,40828540.0,Gamer
+Animation,242988466.0,Cloudy with a Chance of Meatballs
+Comedy,242988466.0,Cloudy with a Chance of Meatballs
+Family,242988466.0,Cloudy with a Chance of Meatballs
+Comedy,31430334.0,A Serious Man
+Drama,31430334.0,A Serious Man
+Comedy,31912793.0,The Invention of Lying
+Romance,31912793.0,The Invention of Lying
+Fantasy,31912793.0,The Invention of Lying
+Comedy,8049666.0,"New York, I Love You"
+Drama,8049666.0,"New York, I Love You"
+Romance,8049666.0,"New York, I Love You"
+Animation,3983912.0,The Pebble and the Penguin
+Adventure,3983912.0,The Pebble and the Penguin
+Family,3983912.0,The Pebble and the Penguin
+Science Fiction,104945765.0,Planet 51
+Animation,104945765.0,Planet 51
+Family,104945765.0,Planet 51
+Comedy,104945765.0,Planet 51
+Adventure,104945765.0,Planet 51
+Romance,267045765.0,The Princess and the Frog
+Family,267045765.0,The Princess and the Frog
+Animation,267045765.0,The Princess and the Frog
+Music,267045765.0,The Princess and the Frog
+Fantasy,51416464.0,Daybreakers
+Horror,51416464.0,Daybreakers
+Action,51416464.0,Daybreakers
+Thriller,51416464.0,Daybreakers
+Science Fiction,51416464.0,Daybreakers
+Action,157107755.0,The Book of Eli
+Thriller,157107755.0,The Book of Eli
+Science Fiction,157107755.0,The Book of Eli
+Comedy,10652035.0,I Love You Phillip Morris
+Drama,10652035.0,I Love You Phillip Morris
+Romance,10652035.0,I Love You Phillip Morris
+Fantasy,494878759.0,How to Train Your Dragon
+Adventure,494878759.0,How to Train Your Dragon
+Animation,494878759.0,How to Train Your Dragon
+Family,494878759.0,How to Train Your Dragon
+Action,1000000.0,Halo Legends
+Animation,1000000.0,Halo Legends
+Science Fiction,1000000.0,Halo Legends
+Comedy,5024782.0,Solitary Man
+Drama,5024782.0,Solitary Man
+Romance,5024782.0,Solitary Man
+Animation,543513985.0,Despicable Me
+Family,543513985.0,Despicable Me
+Comedy,823258.0,Narco
+Comedy,49830607.0,The Switch
+Romance,49830607.0,The Switch
+Drama,49830607.0,The Switch
+Action,31327899.0,Machete
+Comedy,31327899.0,Machete
+Thriller,31327899.0,Machete
+Horror,80547866.0,Vampires Suck
+Comedy,80547866.0,Vampires Suck
+Drama,617000.0,Howl
+Comedy,6491240.0,It's Kind of a Funny Story
+Drama,6491240.0,It's Kind of a Funny Story
+Documentary,3045943.0,Catfish
+Horror,851517.0,Shelter
+Mystery,851517.0,Shelter
+Thriller,851517.0,Shelter
+Animation,591794936.0,Tangled
+Family,591794936.0,Tangled
+Comedy,453079.0,The Extra Man
+Science Fiction,66821036.0,Skyline
+Drama,252276927.0,True Grit
+Adventure,252276927.0,True Grit
+Western,252276927.0,True Grit
+Documentary,187716.0,Waste Land
+Comedy,83160734.0,Hall Pass
+Comedy,563706.0,The Virginity Hit
+Animation,559852396.0,Cars 2
+Family,559852396.0,Cars 2
+Adventure,559852396.0,Cars 2
+Comedy,559852396.0,Cars 2
+Adventure,551.0,The Mysterious Lady
+Drama,551.0,The Mysterious Lady
+Comedy,142851197.0,"Crazy, Stupid, Love."
+Drama,142851197.0,"Crazy, Stupid, Love."
+Romance,142851197.0,"Crazy, Stupid, Love."
+Animation,14460000.0,Winnie the Pooh
+Family,14460000.0,Winnie the Pooh
+Family,39300000.0,Alpha and Omega
+Animation,39300000.0,Alpha and Omega
+Documentary,103735.0,Freakonomics
+Horror,205703818.0,Paranormal Activity 3
+Documentary,225861.0,Life in a Day
+Fantasy,160112671.0,Underworld: Awakening
+Action,160112671.0,Underworld: Awakening
+Horror,160112671.0,Underworld: Awakening
+Action,149217355.0,Ghost Rider: Spirit of Vengeance
+Fantasy,149217355.0,Ghost Rider: Spirit of Vengeance
+Thriller,149217355.0,Ghost Rider: Spirit of Vengeance
+Animation,348840316.0,The Lorax
+Family,348840316.0,The Lorax
+Action,81272766.0,Act of Valor
+Thriller,81272766.0,Act of Valor
+War,81272766.0,Act of Valor
+Action,201585328.0,21 Jump Street
+Comedy,201585328.0,21 Jump Street
+Crime,201585328.0,21 Jump Street
+Drama,4417580.0,"Jeff, Who Lives at Home"
+Comedy,4417580.0,"Jeff, Who Lives at Home"
+Action,32204030.0,Lockout
+Thriller,32204030.0,Lockout
+Science Fiction,32204030.0,Lockout
+Comedy,234989584.0,American Reunion
+Horror,13101672.0,Silent House
+Mystery,13101672.0,Silent House
+Comedy,54819301.0,The Three Stooges
+Animation,118338361.0,The Pirates! In an Adventure with Scientists!
+Adventure,118338361.0,The Pirates! In an Adventure with Scientists!
+Family,118338361.0,The Pirates! In an Adventure with Scientists!
+Comedy,118338361.0,The Pirates! In an Adventure with Scientists!
+Animation,746921274.0,Madagascar 3: Europe's Most Wanted
+Family,746921274.0,Madagascar 3: Europe's Most Wanted
+Animation,538983207.0,Brave
+Adventure,538983207.0,Brave
+Comedy,538983207.0,Brave
+Family,538983207.0,Brave
+Action,538983207.0,Brave
+Fantasy,538983207.0,Brave
+Romance,8303261.0,Bel Ami
+Drama,8303261.0,Bel Ami
+Action,1163967.0,4.3.2.1
+Thriller,1163967.0,4.3.2.1
+Crime,1163967.0,4.3.2.1
+Romance,1163967.0,4.3.2.1
+Animation,877244782.0,Ice Age: Continental Drift
+Comedy,877244782.0,Ice Age: Continental Drift
+Adventure,877244782.0,Ice Age: Continental Drift
+Family,877244782.0,Ice Age: Continental Drift
+Family,107139399.0,ParaNorman
+Animation,107139399.0,ParaNorman
+Adventure,107139399.0,ParaNorman
+Comedy,107139399.0,ParaNorman
+Action,14400000.0,Hit & Run
+Comedy,14400000.0,Hit & Run
+Romance,14400000.0,Hit & Run
+Drama,13231461.0,The Words
+Thriller,13231461.0,The Words
+Documentary,32726956.0,Katy Perry: Part of Me
+Music,32726956.0,Katy Perry: Part of Me
+Horror,142817992.0,Paranormal Activity 4
+Drama,130482868.0,Cloud Atlas
+Science Fiction,130482868.0,Cloud Atlas
+Drama,18144030.0,StreetDance 3D
+Comedy,32438988.0,Movie 43
+Comedy,48065672.0,21 & Over
+Adventure,585178928.0,The Croods
+Animation,585178928.0,The Croods
+Comedy,585178928.0,The Croods
+Family,585178928.0,The Croods
+Fantasy,585178928.0,The Croods
+Foreign,111300.0,Burn
+Documentary,111300.0,Burn
+Action,126041322.0,This Is the End
+Comedy,126041322.0,This Is the End
+Drama,1585582.0,Lovelace
+Comedy,23198652.0,The Way Way Back
+Drama,23198652.0,The Way Way Back
+Animation,970761885.0,Despicable Me 2
+Comedy,970761885.0,Despicable Me 2
+Family,970761885.0,Despicable Me 2
+Animation,248384621.0,Cloudy with a Chance of Meatballs 2
+Family,248384621.0,Cloudy with a Chance of Meatballs 2
+Comedy,248384621.0,Cloudy with a Chance of Meatballs 2
+Animation,1274219009.0,Frozen
+Adventure,1274219009.0,Frozen
+Family,1274219009.0,Frozen
+Drama,32935319.0,Inside Llewyn Davis
+Music,32935319.0,Inside Llewyn Davis
+Horror,36433975.0,Devil's Due
+Drama,75143.0,Better Living Through Chemistry
+Comedy,75143.0,Better Living Through Chemistry
+Adventure,469160692.0,The Lego Movie
+Animation,469160692.0,The Lego Movie
+Comedy,469160692.0,The Lego Movie
+Family,469160692.0,The Lego Movie
+Fantasy,469160692.0,The Lego Movie
+Action,714766572.0,Captain America: The Winter Soldier
+Adventure,714766572.0,Captain America: The Winter Soldier
+Science Fiction,714766572.0,Captain America: The Winter Soldier
+Comedy,10429707.0,Moms' Night Out
+Horror,121179.0,Afflicted
+Thriller,121179.0,Afflicted
+Crime,188441614.0,22 Jump Street
+Comedy,188441614.0,22 Jump Street
+Action,188441614.0,22 Jump Street
+Science Fiction,183987723.0,Jupiter Ascending
+Fantasy,183987723.0,Jupiter Ascending
+Action,183987723.0,Jupiter Ascending
+Adventure,183987723.0,Jupiter Ascending
+Crime,39407616.0,Sin City: A Dame to Kill For
+Thriller,39407616.0,Sin City: A Dame to Kill For
+Animation,108255770.0,The Boxtrolls
+Comedy,108255770.0,The Boxtrolls
+Family,108255770.0,The Boxtrolls
+Fantasy,108255770.0,The Boxtrolls
+Science Fiction,3000000.0,Predestination
+Thriller,3000000.0,Predestination
+Action,88761661.0,John Wick
+Thriller,88761661.0,John Wick
+Adventure,652105443.0,Big Hero 6
+Family,652105443.0,Big Hero 6
+Animation,652105443.0,Big Hero 6
+Action,652105443.0,Big Hero 6
+Comedy,652105443.0,Big Hero 6
+Animation,126546518.0,Walking With Dinosaurs
+Family,126546518.0,Walking With Dinosaurs
+Adventure,126546518.0,Walking With Dinosaurs
+Comedy,169837010.0,Dumb and Dumber To
+Family,373552094.0,Penguins of Madagascar
+Animation,373552094.0,Penguins of Madagascar
+Adventure,373552094.0,Penguins of Madagascar
+Comedy,373552094.0,Penguins of Madagascar
+Drama,43884652.0,Still Alice
+Action,12342632.0,The Interview
+Comedy,12342632.0,The Interview
+Adventure,794191988.0,Pirates of the Caribbean: Dead Men Tell No Tales
+Action,794191988.0,Pirates of the Caribbean: Dead Men Tell No Tales
+Fantasy,794191988.0,Pirates of the Caribbean: Dead Men Tell No Tales
+Comedy,794191988.0,Pirates of the Caribbean: Dead Men Tell No Tales
+Adventure,1153304495.0,Captain America: Civil War
+Action,1153304495.0,Captain America: Civil War
+Science Fiction,1153304495.0,Captain America: Civil War
+Drama,771317.0,The D Train
+Comedy,771317.0,The D Train
+Romance,153962963.0,Focus
+Comedy,153962963.0,Focus
+Crime,153962963.0,Focus
+Drama,153962963.0,Focus
+Family,1156730962.0,Minions
+Animation,1156730962.0,Minions
+Adventure,1156730962.0,Minions
+Comedy,1156730962.0,Minions
+Comedy,104384188.0,Vacation
+Comedy,45000.0,The Opposite Sex
+Horror,42664410.0,The Gallows
+Thriller,42664410.0,The Gallows
+Animation,5659286.0,Anomalisa
+Comedy,5659286.0,Anomalisa
+Drama,5659286.0,Anomalisa
+Romance,5659286.0,Anomalisa
+Comedy,63647656.0,"Hail, Caesar!"
+Drama,63647656.0,"Hail, Caesar!"
+Mystery,63647656.0,"Hail, Caesar!"
+Action,521170825.0,Kung Fu Panda 3
+Adventure,521170825.0,Kung Fu Panda 3
+Animation,521170825.0,Kung Fu Panda 3
+Comedy,521170825.0,Kung Fu Panda 3
+Family,521170825.0,Kung Fu Panda 3
+Drama,14394097.0,Woodlawn
+Comedy,8000000.0,Mickey
+Drama,8000000.0,Mickey
+Animation,1023784195.0,Zootopia
+Adventure,1023784195.0,Zootopia
+Family,1023784195.0,Zootopia
+Comedy,1023784195.0,Zootopia
+War,23083334.0,Whiskey Tango Foxtrot
+Comedy,23083334.0,Whiskey Tango Foxtrot
+Adventure,1028570889.0,Finding Dory
+Animation,1028570889.0,Finding Dory
+Comedy,1028570889.0,Finding Dory
+Family,1028570889.0,Finding Dory
+Family,349779543.0,The Angry Birds Movie
+Animation,349779543.0,The Angry Birds Movie
+Action,8821329.0,Ratchet & Clank
+Adventure,8821329.0,Ratchet & Clank
+Animation,8821329.0,Ratchet & Clank
+Family,8821329.0,Ratchet & Clank
+Adventure,140705322.0,Sausage Party
+Animation,140705322.0,Sausage Party
+Comedy,140705322.0,Sausage Party
+Fantasy,140705322.0,Sausage Party
+Comedy,4210454.0,Swiss Army Man
+Drama,4210454.0,Swiss Army Man
+Romance,4210454.0,Swiss Army Man
+Fantasy,4210454.0,Swiss Army Man
+Adventure,4210454.0,Swiss Army Man
+Adventure,408579038.0,Ice Age: Collision Course
+Animation,408579038.0,Ice Age: Collision Course
+Family,408579038.0,Ice Age: Collision Course
+Comedy,408579038.0,Ice Age: Collision Course
+Mystery,85241496.0,Nerve
+Adventure,85241496.0,Nerve
+Crime,85241496.0,Nerve
+Comedy,183936074.0,Bad Moms
+Adventure,182379278.0,Storks
+Animation,182379278.0,Storks
+Comedy,182379278.0,Storks
+Family,182379278.0,Storks
+Adventure,346864462.0,Trolls
+Animation,346864462.0,Trolls
+Family,346864462.0,Trolls
+Adventure,643034466.0,Moana
+Animation,643034466.0,Moana
+Family,643034466.0,Moana
+Comedy,114501299.0,Office Christmas Party
+Comedy,10474.0,Logan
+Drama,10474.0,Logan
+Family,10474.0,Logan
+Animation,2351359.0,Ballerina
+Family,2351359.0,Ballerina
+Adventure,2351359.0,Ballerina
+Comedy,2351359.0,Ballerina
+Action,1020063384.0,Despicable Me 3
+Animation,1020063384.0,Despicable Me 3
+Adventure,1020063384.0,Despicable Me 3
+Family,1020063384.0,Despicable Me 3
+Comedy,1020063384.0,Despicable Me 3
