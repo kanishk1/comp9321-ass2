@@ -40,7 +40,7 @@ class Input_movie_api(Resource):
         description='Allows admin to input data into database'
     )
     @api.expect(model, validate=True)
-#    @auth_required
+    @auth_required
     def post(self):
         args = post_input_parse.parse_args()
         title = args.get('title')
