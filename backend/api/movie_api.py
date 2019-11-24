@@ -3,11 +3,14 @@ from .input_model import input_parse, movie_input_model
 import pandas as pd
 from sklearn.externals import joblib
 from sklearn.preprocessing import LabelEncoder
+import os
 
-revenue_ml_model_1 = joblib.load("/absolute/path/to/backend/api/models/revenue_1.pkl")
-success_ml_model_1 = joblib.load("/absolute/path/to/backend/api/models/success_1.pkl")
-revenue_ml_model_2 = joblib.load("/absolute/path/to/backend/api/models/revenue_2.pkl")
-success_ml_model_2 = joblib.load("/absolute/path/to/backend/api/models/success_2.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+revenue_ml_model_1 = joblib.load(BASE_DIR + "/models/revenue.pkl")
+success_ml_model_1 = joblib.load(BASE_DIR + "/models/success.pkl")
+revenue_ml_model_2 = joblib.load(BASE_DIR + "/models/revenue2.pkl")
+success_ml_model_2 = joblib.load(BASE_DIR + "/models/success2.pkl")
 
 api = Namespace('movie', description='Movie Predictions')
 

@@ -13,6 +13,7 @@ app = Flask(__name__)
 CORS(app)
 
 app.config.from_object(SQLAchemy_Config)
+app.config['ERROR_404_HELP'] = False
 
 # Setup database
 db = SQLAlchemy(app)

@@ -1,15 +1,18 @@
 import pandas as pd
 from flask_restplus import Resource, Namespace, fields, reqparse
+import os
+from flask import abort
 
 api = Namespace('top_10', description='gives you top 10')
 
-actors_df = pd.read_csv("../../resources/actors.csv")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+actors_df = pd.read_csv(BASE_DIR + "/resources/actors.csv")
 actors_df.dropna(axis=0, inplace=True)
 
-directors_df = pd.read_csv("../../resources/directors.csv")
+directors_df = pd.read_csv(BASE_DIR + "/resources/directors.csv")
 directors_df.dropna(axis=0, inplace=True)
 
-genres_df = pd.read_csv("../../resources/genres.csv")
+genres_df = pd.read_csv(BASE_DIR + "/resources/genres.csv")
 genres_df.dropna(axis=0, inplace=True)
 
 inner_model = api.model('inner_model', {
@@ -79,20 +82,25 @@ class Top10_Api(Resource):
 
         top_actors, top_directors, top_genres = get_top()
 
-        return {
-            'actors': {
+        res = {}
+        if actors:
+            res['actors'] = {
                 'names': list(top_actors.keys()),
                 'revenue': list(top_actors.values()),
                 'input': actors
-            },
-            'directors': {
+            }
+        if directors:
+            res['directors'] = {
                 'names': list(top_directors.keys()),
                 'revenue': list(top_directors.values()),
                 'input': directors
-            },
-            'genres': {
+            }
+        if genres:
+            res['genres'] = {
                 'names': list(top_genres.keys()),
                 'revenue': list(top_genres.values()),
                 'input': genres
             }
-        }
+        if not res:
+            abort(404, "Must query at least one parameter")
+        return res
