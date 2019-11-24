@@ -1,7 +1,8 @@
-import pandas as pd
-from flask_restplus import Resource, Namespace, fields, reqparse
 import os
+
+import pandas as pd
 from flask import abort
+from flask_restplus import Resource, Namespace, fields, reqparse
 
 api = Namespace('top_10', description='gives you top 10')
 
@@ -52,13 +53,13 @@ input_parse.add_argument(
 
 def get_top():
     actor_group = actors_df.sort_values(by="actor").groupby(['actor'], sort=False)
-    top_actors = actor_group['revenue'].cumsum().sort_values(ascending=False)
+    top_actors = actor_group['revenue'].sum().sort_values(ascending=False)
 
     director_group = directors_df.sort_values(by="director").groupby(['director'], sort=False)
-    top_directors = director_group['revenue'].cumsum().sort_values(ascending=False)
+    top_directors = director_group['revenue'].sum().sort_values(ascending=False)
 
     genre_group = genres_df.groupby(['genre'], sort=False)
-    top_genres = genre_group['revenue'].cumsum().sort_values(ascending=False)
+    top_genres = genre_group['revenue'].sum().sort_values(ascending=False)
 
     top_actors = top_actors.head(10).to_dict()
     top_directors = top_directors.head(10).to_dict()
