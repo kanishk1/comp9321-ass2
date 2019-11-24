@@ -1,0 +1,454 @@
+{
+    "swagger": "2.0",
+    "basePath": "/",
+    "paths": {
+        "/api-info/input-movie/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                },
+                "description": "Allows admin to input data into database",
+                "operationId": "post_input_movie_api",
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/input"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "API-KEY": []
+                    }
+                ],
+                "tags": [
+                    "api-info"
+                ]
+            }
+        },
+        "/api-info/usage/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/Usage"
+                        }
+                    }
+                },
+                "description": "Gets usage information of the API",
+                "operationId": "get_usage_api",
+                "security": [
+                    {
+                        "API-KEY": []
+                    }
+                ],
+                "tags": [
+                    "api-info"
+                ]
+            }
+        },
+        "/auth/login/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/token_model"
+                        }
+                    }
+                },
+                "description": "Authenticated user will receive a token",
+                "operationId": "post_login__api",
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Login"
+                        }
+                    }
+                ],
+                "tags": [
+                    "auth"
+                ]
+            }
+        },
+        "/movie/revenue/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/revenue_model"
+                        }
+                    }
+                },
+                "description": "Entering required input estimates            the amount of revenue generated",
+                "operationId": "get_movie_revenue__api",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "title required"
+                    },
+                    {
+                        "name": "genre",
+                        "in": "query",
+                        "type": "array",
+                        "required": true,
+                        "description": "genre required",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "actors",
+                        "in": "query",
+                        "type": "array",
+                        "required": true,
+                        "description": "actors required",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "director",
+                        "in": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "director required"
+                    },
+                    {
+                        "name": "release_date",
+                        "in": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "release date required"
+                    },
+                    {
+                        "name": "budget",
+                        "in": "query",
+                        "type": "integer",
+                        "required": true,
+                        "description": "budget required"
+                    }
+                ],
+                "tags": [
+                    "movie"
+                ]
+            }
+        },
+        "/movie/success/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/success_model"
+                        }
+                    }
+                },
+                "description": "Entering required input determines            whether movie will be a hit or miss",
+                "operationId": "get_movie_hit_flop__api",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "title required"
+                    },
+                    {
+                        "name": "genre",
+                        "in": "query",
+                        "type": "array",
+                        "required": true,
+                        "description": "genre required",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "actors",
+                        "in": "query",
+                        "type": "array",
+                        "required": true,
+                        "description": "actors required",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "director",
+                        "in": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "director required"
+                    },
+                    {
+                        "name": "release_date",
+                        "in": "query",
+                        "type": "string",
+                        "required": true,
+                        "description": "release date required"
+                    },
+                    {
+                        "name": "budget",
+                        "in": "query",
+                        "type": "integer",
+                        "required": true,
+                        "description": "budget required"
+                    }
+                ],
+                "tags": [
+                    "movie"
+                ]
+            }
+        },
+        "/top_10/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/top10_model"
+                        }
+                    }
+                },
+                "description": "Provide you the Top 10",
+                "operationId": "get_top10__api",
+                "parameters": [
+                    {
+                        "name": "actors",
+                        "in": "query",
+                        "type": "array",
+                        "description": "input any actors",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "directors",
+                        "in": "query",
+                        "type": "array",
+                        "description": "input any directors",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "genres",
+                        "in": "query",
+                        "type": "array",
+                        "description": "input any genres",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "tags": [
+                    "top_10"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "Movie stuff",
+        "version": "1.0",
+        "description": "We do Movie stuff"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "API-KEY": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "AUTH-TOKEN"
+        }
+    },
+    "security": [
+        {
+            "API-KEY": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "top_10",
+            "description": "gives you top 10"
+        },
+        {
+            "name": "movie",
+            "description": "Movie Predictions"
+        },
+        {
+            "name": "auth",
+            "description": "Authorization"
+        },
+        {
+            "name": "api-info",
+            "description": "API usage information"
+        }
+    ],
+    "definitions": {
+        "top10_model": {
+            "properties": {
+                "actors": {
+                    "$ref": "#/definitions/inner_model"
+                },
+                "directors": {
+                    "$ref": "#/definitions/inner_model"
+                },
+                "genres": {
+                    "$ref": "#/definitions/inner_model"
+                }
+            },
+            "type": "object"
+        },
+        "inner_model": {
+            "properties": {
+                "names": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "Top 10 Name"
+                    }
+                },
+                "revenue": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "description": "Revenue corresponding to names"
+                    }
+                },
+                "input": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "List of inputs"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "success_model": {
+            "properties": {
+                "result": {
+                    "type": "string",
+                    "description": "Hit or Miss"
+                }
+            },
+            "type": "object"
+        },
+        "revenue_model": {
+            "properties": {
+                "revenue": {
+                    "type": "integer",
+                    "description": "Revenue Estimated"
+                }
+            },
+            "type": "object"
+        },
+        "Login": {
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "token_model": {
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "description": "xxx.yyy.zzz"
+                }
+            },
+            "type": "object"
+        },
+        "Usage": {
+            "properties": {
+                "200": {
+                    "type": "integer",
+                    "description": "0"
+                },
+                "201": {
+                    "type": "integer",
+                    "description": "0"
+                },
+                "400": {
+                    "type": "integer",
+                    "description": "0"
+                },
+                "401": {
+                    "type": "integer",
+                    "description": "0"
+                },
+                "403": {
+                    "type": "integer",
+                    "description": "0"
+                }
+            },
+            "type": "object"
+        },
+        "input": {
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "genre": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "actors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "director": {
+                    "type": "string"
+                },
+                "release_date": {
+                    "type": "string"
+                },
+                "budget": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "responses": {
+        "ParseError": {
+            "description": "When a mask can't be parsed"
+        },
+        "MaskError": {
+            "description": "When any error occurs on mask"
+        }
+    }
+}
