@@ -4,7 +4,7 @@ from passlib.hash import pbkdf2_sha256
 from database.models import User
 from .JWTAuthentication import auth
 
-api = Namespace('auth', description='Authorization')
+api = Namespace('auth-token', description='Authorization')
 
 login_model = api.model('Login', {
     'username': fields.String,
@@ -28,7 +28,7 @@ credentials_parse.add_argument(
     type=str,
     help="password required"
 )
-@api.route('/login/')
+@api.route('')
 class Login_Api(Resource):
     @api.response(200,'success', token_model)
     @api.doc(description="Authenticated user will receive a token")
