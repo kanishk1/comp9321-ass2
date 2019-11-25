@@ -1,0 +1,22 @@
+export const genres = [
+	{ title : "Action" },
+	{ title : "Adventure" },
+	{ title : "Animation" },
+	{ title : "Comedy" },
+	{ title : "Crime" },
+	{ title : "Documentary" },
+	{ title : "Drama" },
+	{ title : "Family" },
+	{ title : "Fantasy" },
+	{ title : "Foreign" },
+	{ title : "History" },
+	{ title : "Horror" },
+	{ title : "Music" },
+	{ title : "Mystery" },
+	{ title : "Romance" },
+	{ title : "Science Fiction" },
+	{ title : "TV Movie" },
+	{ title : "Thriller" },
+	{ title : "War" },
+	{ title : "Western" }
+]

@@ -6,6 +6,20 @@ import { makeStyles } from "@material-ui/core/styles";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { format } from "date-fns";
 import NumberFormat from "react-number-format";
+import { actors } from "../../static/actors";
+import { directors } from "../../static/directors";
+import { genres } from "../../static/genres";
+
+// function random(length) {
+//   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//   let result = '';
+
+//   for (let i = 0; i < length; i += 1) {
+//     result += characters.charAt(Math.floor(Math.random() * characters.length));
+//   }
+
+//   return result;
+// }
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -42,27 +56,12 @@ const NumberFormatCustom = props => {
   );
 };
 
-const genres = [
-  { title: "Action" },
-  { title: "Romance" },
-  { title: "Comedy" },
-  { title: "Sci-Fi" }
-];
-
-const actors = [
-  { title: "Steve Carell" },
-  { title: "Tom Hanks" },
-  { title: "Emma Watson" },
-  { title: "Al Pacino" },
-  { title: "Emily Blunt" }
-];
-
 const MovieForm = props => {
   const classes = useStyles();
   const [movieTitle, setMovieTitle] = React.useState("");
   const [genreList, setGenreList] = React.useState([]);
   const [actorList, setActorList] = React.useState([]);
-  const [director, setDirector] = React.useState("");
+  const [directorList, setDirector] = React.useState("");
   const [releaseDate, setReleaseDate] = React.useState(Date.now());
   const [budget, setBudget] = React.useState(0);
 
@@ -71,7 +70,7 @@ const MovieForm = props => {
       title: movieTitle,
       genre: genreList.map(item => item.title),
       actors: actorList.map(item => item.title),
-      director: director,
+      director: directorList.map(item => item.title),
       release_date: format(releaseDate, "yyyy-MM-dd"),
       budget: Number(budget)
     };
@@ -141,17 +140,26 @@ const MovieForm = props => {
           />
         </div>
         <div>
-          <TextField
-            id="outlined-basic-director"
+          <Autocomplete
+            id="combo-box-directors"
+            options={Array.from(directors).map(() => random(Math.ceil(Math.random() * 18)))}
+            multiple
+            value={directorList}
             className={classes.textField}
-            label="Director"
-            margin="normal"
-            variant="outlined"
-            color="secondary"
-            fullWidth={true}
-            value={director}
-            placeholder="Enter Director of Production"
-            onChange={e => setDirector(e.target.value)}
+            getOptionLabel={option => option.title}
+            onChange={(_event, value) => setDirector(value)}
+            renderInput={params => (
+              <TextField
+                // id="outlined-basic-director"
+                {...params}
+                label="Director"
+                margin="normal"
+                variant="outlined"
+                color="secondary"
+                fullWidth={true}
+                placeholder="Enter Director of Production"
+              />
+            )}
           />
         </div>
         <div>
