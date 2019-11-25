@@ -48,7 +48,7 @@ const DBInput = () => {
     const fetchData = async () => {
       setIsLoading(true);
       const data = movieInfo;
-      fetch("/api-info/input-movie", {
+      fetch("/private/input-movie", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

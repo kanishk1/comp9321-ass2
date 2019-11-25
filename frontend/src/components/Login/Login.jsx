@@ -62,7 +62,7 @@ const Login = () => {
       username: username,
       password: password
     };
-    fetch("/auth/login", {
+    fetch("/auth-token", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
