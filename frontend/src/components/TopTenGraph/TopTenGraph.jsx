@@ -49,7 +49,7 @@ export default function TopTenGraph(props) {
           yaxis: {
             title: props.name
           },
-          title: props.name
+          title: "Top 10 " + props.name
         }}
         config={{
           responsive: true,

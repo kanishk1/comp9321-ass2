@@ -2,10 +2,29 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { format } from "date-fns";
 import NumberFormat from "react-number-format";
+import { actors } from "../../static/actors";
+import { directors } from "../../static/directors";
+import { genres } from "../../static/genres";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { FixedSizeList } from 'react-window';
+
+function renderRow(props) {
+  const { data, index, style } = props;
+
+  return React.cloneElement(data[index], {
+    style: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      display: 'block',
+      ...style,
+    },
+  });
+}
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -42,20 +61,35 @@ const NumberFormatCustom = props => {
   );
 };
 
-const genres = [
-  { title: "Action" },
-  { title: "Romance" },
-  { title: "Comedy" },
-  { title: "Sci-Fi" }
-];
+const ListboxComponent = React.forwardRef(function ListboxComponent(props, ref) {
+  const { children, ...other } = props;
+  const theme = useTheme();
+  const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+  const itemCount = Array.isArray(children) ? children.length : 0;
+  const itemSize = smUp ? 36 : 48;
 
-const actors = [
-  { title: "Steve Carell" },
-  { title: "Tom Hanks" },
-  { title: "Emma Watson" },
-  { title: "Al Pacino" },
-  { title: "Emily Blunt" }
-];
+  const outerElementType = React.useMemo(() => {
+    return React.forwardRef((props2, ref2) => <div ref={ref2} {...props2} {...other} />);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div ref={ref}>
+      <FixedSizeList
+        style={{ padding: 0, height: Math.min(8, itemCount) * itemSize, maxHeight: 'auto' }}
+        itemData={children}
+        height={250}
+        width="100%"
+        outerElementType={outerElementType}
+        innerElementType="ul"
+        itemSize={itemSize}
+        overscanCount={5}
+        itemCount={itemCount}
+      >
+        {renderRow}
+      </FixedSizeList>
+    </div>
+  );
+});
 
 const MovieForm = props => {
   const classes = useStyles();
@@ -121,6 +155,7 @@ const MovieForm = props => {
         <div>
           <Autocomplete
             id="combo-box-actors"
+            ListboxComponent={ListboxComponent}
             options={actors}
             multiple
             value={actorList}
