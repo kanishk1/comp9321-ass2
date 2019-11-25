@@ -48,7 +48,7 @@ class Input_movie_api(Resource):
         genre = genre.strip('[]')
         actors = args.get('actors')
         actors = actors.strip('[]')
-        director = args.get('directors')
+        director = args.get('director')
         release_date = args.get('release_date')
         budget = args.get('budget')
 
