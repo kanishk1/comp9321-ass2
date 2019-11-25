@@ -27,7 +27,7 @@ const APIUsage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`/api-info/usage/`, {
+    fetch(`/private/api-usage/`, {
       headers: {
         "Auth-Token": isLoggedIn
       }
@@ -42,7 +42,7 @@ const APIUsage = () => {
         setIsError(true);
       });
   }, [isLoggedIn]);
-  const values = Object.values(usage)
+  const values = Object.values(usage);
   const labels = ["200", "201", "400", "401", "403"];
   return (
     <>

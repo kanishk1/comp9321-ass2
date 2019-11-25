@@ -2,9 +2,14 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Snackbar from "@material-ui/core/Snackbar";
 import { makeStyles } from "@material-ui/core/styles";
 import { AuthContext } from "../Context";
 import { useHistory } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
+import ErrorIcon from "@material-ui/icons/Error";
+import CloseIcon from "@material-ui/icons/Close";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -20,7 +25,25 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: theme.spacing(1)
-  }
+  },
+  success: {
+    backgroundColor: "#43a047"
+  },
+  error: {
+    backgroundColor: "#d32e2f"
+  },
+  icon: {
+    fontSize: 20
+  },
+  iconVariant: {
+    opacity: 0.9,
+    marginRight: theme.spacing(1)
+  },
+  message: {
+    display: "flex",
+    alignItems: "center"
+  },
+  margin: theme.spacing(1)
 }));
 
 const Login = () => {
@@ -31,6 +54,7 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
+  const [openErrorSnack, setOpenErrorSnack] = React.useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -38,7 +62,7 @@ const Login = () => {
       username: username,
       password: password
     };
-    fetch("/auth/login", {
+    fetch("/auth-token", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -53,6 +77,8 @@ const Login = () => {
         setIsLoading(false);
         if (respObj.status === 200) {
           history.push("/api-usage");
+        } else {
+          setOpenErrorSnack(true);
         }
       })
       .catch(() => {
@@ -101,6 +127,35 @@ const Login = () => {
         >
           Login
         </Button>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          open={openErrorSnack}
+          onClose={() => setOpenErrorSnack(false)}
+          variant="error"
+          autoHideDuration={5000}
+        >
+          <SnackbarContent
+            className={`${classes.error} ${classes.margin}`}
+            message={
+              <span id="message-id" className={classes.message}>
+                <ErrorIcon
+                  className={`${classes.icon} ${classes.iconVariant}`}
+                />
+                Oops...Incorrect Credentials
+              </span>
+            }
+            action={[
+              <IconButton
+                key="close"
+                aria-label="close"
+                color="inherit"
+                onClick={() => setOpenErrorSnack(false)}
+              >
+                <CloseIcon className={classes.icon} />
+              </IconButton>
+            ]}
+          />
+        </Snackbar>
         {isLoading && <CircularProgress />}
       </form>
     </>
