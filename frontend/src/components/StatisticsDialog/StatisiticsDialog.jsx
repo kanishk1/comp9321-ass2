@@ -128,7 +128,7 @@ const StatisticsDialog = props => {
                   x={respStats.actors.revenue.reverse()}
                   y={respStats.actors.names.reverse()}
                   input={respStats.actors.input}
-                  name="Top 10 Actors"
+                  name="Actors"
                 />
               </Grid>
               <Grid item sm={6} xs={12}>
@@ -136,7 +136,7 @@ const StatisticsDialog = props => {
                   x={respStats.directors.revenue.reverse()}
                   y={respStats.directors.names.reverse()}
                   input={respStats.directors.input}
-                  name="Top 10 Directors"
+                  name="Directors"
                 />
               </Grid>
               <Grid item sm={6} xs={12}>
@@ -144,7 +144,7 @@ const StatisticsDialog = props => {
                   x={respStats.genres.revenue.reverse()}
                   y={respStats.genres.names.reverse()}
                   input={respStats.genres.input}
-                  name="Top 10 Genres"
+                  name="Genres"
                 />
               </Grid>
             </Grid>

@@ -2,24 +2,29 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { format } from "date-fns";
 import NumberFormat from "react-number-format";
 import { actors } from "../../static/actors";
 import { directors } from "../../static/directors";
 import { genres } from "../../static/genres";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { FixedSizeList } from 'react-window';
 
-// function random(length) {
-//   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//   let result = '';
+function renderRow(props) {
+  const { data, index, style } = props;
 
-//   for (let i = 0; i < length; i += 1) {
-//     result += characters.charAt(Math.floor(Math.random() * characters.length));
-//   }
-
-//   return result;
-// }
+  return React.cloneElement(data[index], {
+    style: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      display: 'block',
+      ...style,
+    },
+  });
+}
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -56,12 +61,42 @@ const NumberFormatCustom = props => {
   );
 };
 
+const ListboxComponent = React.forwardRef(function ListboxComponent(props, ref) {
+  const { children, ...other } = props;
+  const theme = useTheme();
+  const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+  const itemCount = Array.isArray(children) ? children.length : 0;
+  const itemSize = smUp ? 36 : 48;
+
+  const outerElementType = React.useMemo(() => {
+    return React.forwardRef((props2, ref2) => <div ref={ref2} {...props2} {...other} />);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div ref={ref}>
+      <FixedSizeList
+        style={{ padding: 0, height: Math.min(8, itemCount) * itemSize, maxHeight: 'auto' }}
+        itemData={children}
+        height={250}
+        width="100%"
+        outerElementType={outerElementType}
+        innerElementType="ul"
+        itemSize={itemSize}
+        overscanCount={5}
+        itemCount={itemCount}
+      >
+        {renderRow}
+      </FixedSizeList>
+    </div>
+  );
+});
+
 const MovieForm = props => {
   const classes = useStyles();
   const [movieTitle, setMovieTitle] = React.useState("");
   const [genreList, setGenreList] = React.useState([]);
   const [actorList, setActorList] = React.useState([]);
-  const [directorList, setDirector] = React.useState("");
+  const [director, setDirector] = React.useState("");
   const [releaseDate, setReleaseDate] = React.useState(Date.now());
   const [budget, setBudget] = React.useState(0);
 
@@ -70,7 +105,7 @@ const MovieForm = props => {
       title: movieTitle,
       genre: genreList.map(item => item.title),
       actors: actorList.map(item => item.title),
-      director: directorList.map(item => item.title),
+      director: director,
       release_date: format(releaseDate, "yyyy-MM-dd"),
       budget: Number(budget)
     };
@@ -120,6 +155,7 @@ const MovieForm = props => {
         <div>
           <Autocomplete
             id="combo-box-actors"
+            ListboxComponent={ListboxComponent}
             options={actors}
             multiple
             value={actorList}
@@ -140,26 +176,17 @@ const MovieForm = props => {
           />
         </div>
         <div>
-          <Autocomplete
-            id="combo-box-directors"
-            options={Array.from(directors).map(() => random(Math.ceil(Math.random() * 18)))}
-            multiple
-            value={directorList}
+          <TextField
+            id="outlined-basic-director"
             className={classes.textField}
-            getOptionLabel={option => option.title}
-            onChange={(_event, value) => setDirector(value)}
-            renderInput={params => (
-              <TextField
-                // id="outlined-basic-director"
-                {...params}
-                label="Director"
-                margin="normal"
-                variant="outlined"
-                color="secondary"
-                fullWidth={true}
-                placeholder="Enter Director of Production"
-              />
-            )}
+            label="Director"
+            margin="normal"
+            variant="outlined"
+            color="secondary"
+            fullWidth={true}
+            value={director}
+            placeholder="Enter Director of Production"
+            onChange={e => setDirector(e.target.value)}
           />
         </div>
         <div>
