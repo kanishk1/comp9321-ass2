@@ -2,6 +2,7 @@ from flask_restplus import Namespace, Resource, fields, reqparse
 from .JWTAuthentication import auth_required
 from .input_model import post_input_parse, movie_input_model
 from database.models import Status_tracker
+from flask import Response
 
 api = Namespace('api-info', description='API usage information')
 
@@ -34,7 +35,7 @@ class Usage_api(Resource):
 model = api.model('input', movie_input_model)
 @api.route('/input-movie/')
 class Input_movie_api(Resource):
-    @api.response(200, 'success')
+    @api.response(201, 'created')
     @api.doc(
         security='API-KEY',
         description='Allows admin to input data into database'
@@ -65,5 +66,5 @@ class Input_movie_api(Resource):
         db.session.add(m)
         db.session.commit()
 
-        return "Uploaded data to database, success"
+        return "Uploaded data to database, success", 201
 
