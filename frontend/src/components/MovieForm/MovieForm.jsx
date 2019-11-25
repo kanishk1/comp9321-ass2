@@ -28,6 +28,7 @@ const genres = [
 ];
 
 const actors = [
+  { title: "Steve Carell" },
   { title: "Tom Hanks" },
   { title: "Emma Watson" },
   { title: "Al Pacino" },

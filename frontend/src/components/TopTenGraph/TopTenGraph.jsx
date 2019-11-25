@@ -8,7 +8,7 @@ const useStyles = makeStyles(() =>
       margin: "0 auto"
     },
     graphContainer: {
-      height: "40vh",
+      height: "60vh",
       padding: 0,
       position: "relative",
       textAlign: "center"
@@ -18,6 +18,11 @@ const useStyles = makeStyles(() =>
 
 export default function TopTenGraph(props) {
   const classes = useStyles();
+  const color = new Array(10);
+  color.fill("purple");
+  if (props.input) {
+    color[props.y.findIndex(elem => props.input.includes(elem))] = "#1f77b4";
+  }
 
   return (
     <div className={classes.graphContainer}>
@@ -28,7 +33,7 @@ export default function TopTenGraph(props) {
             y: props.y,
             orientation: "h",
             type: "bar",
-            marker: { color: "purple" }
+            marker: { color: color }
           }
         ]}
         layout={{

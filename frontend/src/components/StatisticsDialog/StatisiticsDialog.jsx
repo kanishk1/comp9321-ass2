@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
   graphContainer: {
     padding: 0,
-    height: "40vh",
+    height: "60vh",
     position: "relative",
     textAlign: "center"
   }
@@ -127,6 +127,7 @@ const StatisticsDialog = props => {
                 <TopTenGraph
                   x={respStats.actors.revenue.reverse()}
                   y={respStats.actors.names.reverse()}
+                  input={respStats.actors.input}
                   name="Top 10 Actors"
                 />
               </Grid>
@@ -134,6 +135,7 @@ const StatisticsDialog = props => {
                 <TopTenGraph
                   x={respStats.directors.revenue.reverse()}
                   y={respStats.directors.names.reverse()}
+                  input={respStats.directors.input}
                   name="Top 10 Directors"
                 />
               </Grid>
@@ -141,6 +143,7 @@ const StatisticsDialog = props => {
                 <TopTenGraph
                   x={respStats.genres.revenue.reverse()}
                   y={respStats.genres.names.reverse()}
+                  input={respStats.genres.input}
                   name="Top 10 Genres"
                 />
               </Grid>
