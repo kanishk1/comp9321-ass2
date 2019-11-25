@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -32,20 +32,33 @@ const useStyles = makeStyles(theme => ({
 
 const StatisticsDialog = props => {
   const classes = useStyles();
+  const [respStats, setRespStats] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
 
-  const values = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512];
-  const labels = [
-    "Label 1",
-    "Label 2",
-    "Label 3",
-    "Label 4",
-    "Label 5",
-    "Label 6",
-    "Label 7",
-    "Label 8",
-    "Label 9",
-    "Label 10"
-  ];
+  useEffect(() => {
+    setIsLoading(true);
+    if (props.movieInfo) {
+      fetch(
+        `/top_10/?actors=${props.movieInfo.actors.toString()}&genres=${props.movieInfo.actors.toString()}&directors=${
+          props.movieInfo.director
+        }`
+      )
+        .then(response => response.json())
+        .then(response => {
+          setRespStats(response);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setIsLoading(false);
+          setIsError(true);
+        });
+    } else {
+      setIsLoading(false);
+    }
+  }, [props.movieInfo]);
+
+  console.log(respStats);
 
   const pieValues = [10, 20, 40, 10, 20];
   const pieLabels = [
@@ -79,46 +92,60 @@ const StatisticsDialog = props => {
             These graphs show important each of the features are in the movie's
             success
           </DialogContentText>
-          <Grid container spacing={3}>
-            <Grid item sm={6} xs={12}>
-              <div className={classes.graphContainer}>
-                <Plot
-                  data={[
-                    {
-                      values: pieValues,
-                      labels: pieLabels,
-                      type: "pie"
-                    }
-                  ]}
-                  layout={{
-                    autosize: true,
-                    title: "Feature Importance Breakdown",
-                    hoverinfo: "percent+name",
-                    textinfo: "none",
-                    showlegend: false
-                  }}
-                  config={{
-                    responsive: true,
-                    displaylogo: false,
-                    modeBarButtons: [["zoom2d", "pan2d", "toImage"]],
-                    displayModeBar: true
-                  }}
-                  style={{ width: "120%", height: "120%" }}
-                  useResizeHandler
-                  className={classes.graph}
+          {respStats && (
+            <Grid container spacing={3}>
+              <Grid item sm={6} xs={12}>
+                <div className={classes.graphContainer}>
+                  <Plot
+                    data={[
+                      {
+                        values: pieValues,
+                        labels: pieLabels,
+                        type: "pie"
+                      }
+                    ]}
+                    layout={{
+                      autosize: true,
+                      title: "Feature Importance Breakdown",
+                      hoverinfo: "percent+name",
+                      textinfo: "none",
+                      showlegend: false
+                    }}
+                    config={{
+                      responsive: true,
+                      displaylogo: false,
+                      modeBarButtons: [["zoom2d", "pan2d", "toImage"]],
+                      displayModeBar: true
+                    }}
+                    style={{ width: "120%", height: "120%" }}
+                    useResizeHandler
+                    className={classes.graph}
+                  />
+                </div>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <TopTenGraph
+                  x={respStats.actors.revenue.reverse()}
+                  y={respStats.actors.names.reverse()}
+                  name="Top 10 Actors"
                 />
-              </div>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <TopTenGraph
+                  x={respStats.directors.revenue.reverse()}
+                  y={respStats.directors.names.reverse()}
+                  name="Top 10 Directors"
+                />
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <TopTenGraph
+                  x={respStats.genres.revenue.reverse()}
+                  y={respStats.genres.names.reverse()}
+                  name="Top 10 Genres"
+                />
+              </Grid>
             </Grid>
-            <Grid item sm={6} xs={12}>
-              <TopTenGraph x={values} y={labels} name="Top 10 Actors" />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TopTenGraph x={values} y={labels} name="Top 10 Directors" />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TopTenGraph x={values} y={labels} name="Top 10 Genres" />
-            </Grid>
-          </Grid>
+          )}
         </DialogContent>
 
         <DialogActions>

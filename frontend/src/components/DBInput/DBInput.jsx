@@ -27,7 +27,8 @@ const DBInput = () => {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "Auth-Token": isLoggedIn
+          "Auth-Token": isLoggedIn,
+          "Content-Type": "application/json"
         }
       })
         .then(response => response.json())

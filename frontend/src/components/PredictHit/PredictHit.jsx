@@ -27,19 +27,25 @@ const PredictHit = props => {
 
   useEffect(() => {
     setIsLoading(true);
-    const queryParams = "?movie_title=ken";
-    fetch(`/movie/success/${queryParams}`)
-      .then(response =>
-        response.json().then(data => ({ status: response.status, body: data }))
-      )
-      .then(respObj => {
-        setMovieSuccess(respObj.body.Bad);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setIsError(true);
-      });
+    if (props.movieInfo) {
+      const queryParams = `?title=${props.movieInfo.title}&genre=${props.movieInfo.genre.toString()}&actors=${props.movieInfo.actors.toString()}&director=${props.movieInfo.director}&release_date=${props.movieInfo.release_date}&budget=${props.movieInfo.budget}`;
+      fetch(`/movie/success/${queryParams}`)
+        .then(response =>
+          response
+            .json()
+            .then(data => ({ status: response.status, body: data }))
+        )
+        .then(respObj => {
+          setMovieSuccess(respObj.body.result);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setIsLoading(false);
+          setIsError(true);
+        });
+    } else {
+      setIsLoading(false);
+    }
   }, [props.movieInfo]);
 
   return (
@@ -56,7 +62,7 @@ const PredictHit = props => {
           </Typography>
 
           <Typography component="h1" variant="h1">
-            HIT
+            {movieSuccess ? movieSuccess : "-"}
           </Typography>
         </Paper>
       )}
