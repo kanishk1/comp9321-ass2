@@ -49,7 +49,7 @@
 							"raw": "{\n\t\"username\": \"password\",\n\t\"password\": \"password\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/auth/login/",
+							"raw": "http://127.0.0.1:5000/auth-token",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -59,9 +59,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"auth",
-								"login",
-								""
+								"auth-token"
 							]
 						}
 					},
@@ -127,7 +125,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/auth/login/",
+							"raw": "http://127.0.0.1:5000/auth-token",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -137,9 +135,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"auth",
-								"login",
-								""
+								"auth-token"
 							]
 						}
 					},
@@ -205,7 +201,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/auth/login/",
+							"raw": "http://127.0.0.1:5000/auth-token",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -215,9 +211,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"auth",
-								"login",
-								""
+								"auth-token"
 							]
 						}
 					},
@@ -283,7 +277,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/auth/login/",
+							"raw": "http://127.0.0.1:5000/auth-token",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -293,9 +287,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"auth",
-								"login",
-								""
+								"auth-token"
 							]
 						}
 					},
@@ -360,7 +352,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/auth/login/",
+							"raw": "http://127.0.0.1:5000/auth-token",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -370,9 +362,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"auth",
-								"login",
-								""
+								"auth-token"
 							]
 						}
 					},
@@ -1468,7 +1458,7 @@
 						"header": [
 							{
 								"key": "AUTH-TOKEN",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjEzNzQxfQ.3mED8y_2zgAzvYPsAl3dSik9nwlvU2OWNG6yvKsnXX",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
 								"type": "text"
 							},
 							{
@@ -1482,7 +1472,7 @@
 							"raw": "{\n  \"title\": \"string\",\n  \"genre\": [\n    \"string\"\n  ],\n  \"actors\": [\n    \"string\"\n  ],\n  \"director\": \"string\",\n  \"release_data\": \"string\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"raw": "http://127.0.0.1:5000/private/input-movie/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1492,7 +1482,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
+								"private",
 								"input-movie",
 								""
 							]
@@ -1519,7 +1509,7 @@
 								"id": "7d0402a3-6de8-4d44-8f1d-ae935db09362",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"    pm.response.to.have.status(201);",
 									"});",
 									"",
 									""
@@ -1539,7 +1529,7 @@
 							},
 							{
 								"key": "AUTH-TOKEN",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjE2NzEyfQ.CvCbTmrULgazEP2FoxGuV-FUoR5EiNeEQslzMxmzY-c",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
 								"type": "text"
 							}
 						],
@@ -1553,7 +1543,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"raw": "http://127.0.0.1:5000/private/input-movie/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1563,7 +1553,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
+								"private",
 								"input-movie",
 								""
 							]
@@ -1616,7 +1606,7 @@
 							},
 							{
 								"key": "AUTH-TOKEN",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjEzOTk0fQ.h-kvkZV5pXp1DMGT3togSxutplhhc6MGuBSdLvQye8w",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
 								"type": "text"
 							}
 						],
@@ -1630,7 +1620,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"raw": "http://127.0.0.1:5000/private/input-movie/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1640,7 +1630,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
+								"private",
 								"input-movie",
 								""
 							]
@@ -1690,6 +1680,16 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1702,7 +1702,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"raw": "http://127.0.0.1:5000/private/input-movie/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1712,7 +1712,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
+								"private",
 								"input-movie",
 								""
 							]
@@ -1765,6 +1765,11 @@
 							},
 							{
 								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
+								"type": "text"
+							},
+							{
+								"key": "",
 								"value": "",
 								"type": "text"
 							}
@@ -1779,7 +1784,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"raw": "http://127.0.0.1:5000/private/input-movie/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1789,7 +1794,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
+								"private",
 								"input-movie",
 								""
 							]
@@ -1839,6 +1844,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "AUTH-TOKEN",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1851,7 +1861,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/input-movie/",
+							"raw": "http://127.0.0.1:5000/private/input-movie/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1861,7 +1871,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
+								"private",
 								"input-movie",
 								""
 							]
@@ -1909,7 +1919,7 @@
 						"header": [
 							{
 								"key": "AUTH-TOKEN",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjE2NjU4fQ.trVBiU_NGtUSbVmt8i3dWbuad4li7oGRa-1wimVGKuo",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
 								"type": "text"
 							}
 						],
@@ -1918,7 +1928,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/usage/",
+							"raw": "http://127.0.0.1:5000/private/api-usage/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1928,8 +1938,8 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
-								"usage",
+								"private",
+								"api-usage",
 								""
 							]
 						}
@@ -1974,7 +1984,7 @@
 						"header": [
 							{
 								"key": "AUTH-TOKEN",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjE2OTEwfQ.X5nRneQqefJTG7-sjo_PkaUlUhZQXX9bUrWkpWR0YEQ",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InBhc3N3b3JkIiwiZXhwIjoxNTc0NjY3NDM2fQ.4c96P_r0ly1NBHdGg05762ign3t9Dux3_V2pLtFsmAY",
 								"type": "text"
 							},
 							{
@@ -1989,7 +1999,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api-info/usage/?",
+							"raw": "http://127.0.0.1:5000/private/api-usage/?",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1999,8 +2009,8 @@
 							],
 							"port": "5000",
 							"path": [
-								"api-info",
-								"usage",
+								"private",
+								"api-usage",
 								""
 							],
 							"query": [
