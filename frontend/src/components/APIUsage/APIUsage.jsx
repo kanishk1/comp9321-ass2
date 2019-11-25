@@ -27,7 +27,7 @@ const APIUsage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`/private/usage/`, {
+    fetch(`/private/api-usage/`, {
       headers: {
         "Auth-Token": isLoggedIn
       }
