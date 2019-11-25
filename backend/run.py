@@ -6,7 +6,7 @@ from flask_cors import CORS
 from database.sqlalchemy_config import SQLAchemy_Config
 
 SECRET_KEY = 'THIS_IS_NOT_A_SECRET'
-TOKEN_DURATION = 60 * 2
+TOKEN_DURATION = 60 * 240
 
 # Creates flask app
 app = Flask(__name__)
