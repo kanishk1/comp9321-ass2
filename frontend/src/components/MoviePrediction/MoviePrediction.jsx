@@ -65,7 +65,7 @@ const MoviePrediction = () => {
           </Button>
         </Box>
       </Box>
-      <StatisticsDialog open={openDialog} handleClose={handleClose} />
+      <StatisticsDialog open={openDialog} handleClose={handleClose} movieInfo={movieInfo}/>
     </div>
   );
 };

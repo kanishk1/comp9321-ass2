@@ -25,21 +25,26 @@ const PredictRevenue = props => {
   const [isError, setIsError] = React.useState(false);
 
   useEffect(() => {
-    console.log("triggered");
     setIsLoading(true);
-    const queryParams = "?movie_title=ken";
-    fetch(`/movie/revenue/${queryParams}`)
-      .then(response =>
-        response.json().then(data => ({ status: response.status, body: data }))
-      )
-      .then(respObj => {
-        setRevenue(respObj.body.No);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setIsError(true);
-      });
+    if (props.movieInfo) {
+      const queryParams = `?title=${props.movieInfo.title}&genre=${props.movieInfo.genre.toString()}&actors=${props.movieInfo.actors.toString()}&director=${props.movieInfo.director}&release_date=${props.movieInfo.release_date}&budget=${props.movieInfo.budget}`;
+      fetch(`/movie/revenue/${queryParams}`)
+        .then(response =>
+          response
+            .json()
+            .then(data => ({ status: response.status, body: data }))
+        )
+        .then(respObj => {
+          setRevenue(respObj.body.revenue);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setIsLoading(false);
+          setIsError(true);
+        });
+    } else {
+      setIsLoading(false);
+    }
   }, [props.movieInfo]);
 
   return (
@@ -55,7 +60,7 @@ const PredictRevenue = props => {
             Revenue Prediction:
           </Typography>
           <Typography component="h1" variant="h1">
-            $0
+            {revenue ? `$${revenue}` : "$0"}
           </Typography>
         </Paper>
       )}

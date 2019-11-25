@@ -35,10 +35,11 @@ export default function TopTenGraph(props) {
           showlegend: false,
           autosize: true,
           margin: {
-            t: 40
+            t: 40,
+            l: 140
           },
           xaxis: {
-            title: "Revenue"
+            title: "Revenue ($)"
           },
           yaxis: {
             title: props.name

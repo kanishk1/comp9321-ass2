@@ -4,6 +4,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { KeyboardDatePicker } from "@material-ui/pickers";
+import { format } from "date-fns";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -39,15 +40,17 @@ const MovieForm = props => {
   const [genreList, setGenreList] = React.useState([]);
   const [actorList, setActorList] = React.useState([]);
   const [director, setDirector] = React.useState("");
-  const [releaseDate, setReleaseDate] = React.useState(null);
+  const [releaseDate, setReleaseDate] = React.useState(Date.now());
+  const [budget, setBudget] = React.useState(0);
 
   const handleSubmit = () => {
     const info = {
-      movie_title: movieTitle,
-      genre_list: genreList,
-      actor_list: actorList,
+      title: movieTitle,
+      genre: genreList.map(item => item.title),
+      actors: actorList.map(item => item.title),
       director: director,
-      release_date: releaseDate
+      release_date: format(releaseDate, "yyyy-MM-dd"),
+      budget: Number(budget)
     };
     console.log(info);
     props.setInfo(info);
@@ -123,6 +126,7 @@ const MovieForm = props => {
             variant="outlined"
             color="secondary"
             fullWidth={true}
+            value={director}
             placeholder="Enter Director of Production"
             onChange={e => setDirector(e.target.value)}
           />
@@ -141,6 +145,21 @@ const MovieForm = props => {
             KeyboardButtonProps={{
               "aria-label": "change date"
             }}
+          />
+        </div>
+        <div>
+          <TextField
+            id="outlined-basic-budget"
+            className={classes.textField}
+            label="Budget"
+            margin="normal"
+            variant="outlined"
+            color="secondary"
+            type="number"
+            fullWidth={true}
+            placeholder="Enter Production Budget"
+            value={budget}
+            onChange={e => setBudget(e.target.value)}
           />
         </div>
 

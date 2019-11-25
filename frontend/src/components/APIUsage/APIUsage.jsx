@@ -34,7 +34,7 @@ const APIUsage = () => {
     })
       .then(response => response.json())
       .then(response => {
-        setUsage(response.No);
+        setUsage(response);
         setIsLoading(false);
       })
       .catch(() => {
@@ -42,8 +42,7 @@ const APIUsage = () => {
         setIsError(true);
       });
   }, [isLoggedIn]);
-
-  const values = [80, 5, 10, 4, 1];
+  const values = Object.values(usage)
   const labels = ["200", "201", "400", "401", "403"];
   return (
     <>
