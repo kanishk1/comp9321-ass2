@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { format } from "date-fns";
+import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -19,6 +20,27 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1)
   }
 }));
+
+const NumberFormatCustom = props => {
+  const { inputRef, onChange, ...other } = props;
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={inputRef}
+      onValueChange={values => {
+        onChange({
+          target: {
+            value: values.value
+          }
+        });
+      }}
+      thousandSeparator
+      isNumericString
+      prefix="$"
+    />
+  );
+};
 
 const genres = [
   { title: "Action" },
@@ -156,11 +178,13 @@ const MovieForm = props => {
             margin="normal"
             variant="outlined"
             color="secondary"
-            type="number"
             fullWidth={true}
             placeholder="Enter Production Budget"
             value={budget}
             onChange={e => setBudget(e.target.value)}
+            InputProps={{
+              inputComponent: NumberFormatCustom
+            }}
           />
         </div>
 

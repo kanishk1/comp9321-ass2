@@ -3,6 +3,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles(theme => ({
   paperContainer: {
@@ -27,7 +28,13 @@ const PredictRevenue = props => {
   useEffect(() => {
     setIsLoading(true);
     if (props.movieInfo) {
-      const queryParams = `?title=${props.movieInfo.title}&genre=${props.movieInfo.genre.toString()}&actors=${props.movieInfo.actors.toString()}&director=${props.movieInfo.director}&release_date=${props.movieInfo.release_date}&budget=${props.movieInfo.budget}`;
+      const queryParams = `?title=${
+        props.movieInfo.title
+      }&genre=${props.movieInfo.genre.toString()}&actors=${props.movieInfo.actors.toString()}&director=${
+        props.movieInfo.director
+      }&release_date=${props.movieInfo.release_date}&budget=${
+        props.movieInfo.budget
+      }`;
       fetch(`/movie/revenue/${queryParams}`)
         .then(response =>
           response
@@ -59,8 +66,17 @@ const PredictRevenue = props => {
           <Typography component="h5" variant="h5">
             Revenue Prediction:
           </Typography>
-          <Typography component="h1" variant="h1">
-            {revenue ? `$${revenue}` : "$0"}
+          <Typography component="h2" variant="h2">
+            {revenue ? (
+              <NumberFormat
+                value={revenue}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"$"}
+              />
+            ) : (
+              "$0"
+            )}
           </Typography>
         </Paper>
       )}
